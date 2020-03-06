@@ -2,6 +2,6 @@
 if (!isset($_SESSION)) {session_start();}
 if (empty($_SESSION['username']) AND
     empty($_SESSION['password']))
-    {include "login.php";}
+    {include "pages/login/login.php";}
     else {
 ?>
