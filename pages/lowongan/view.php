@@ -4,14 +4,13 @@ if (empty($_SESSION['username']) AND
     empty($_SESSION['password']))
     {include "login.php";}
     else {
-      if ($_SESSION['jabatan'] == "SATKER") {
 ?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>PT. Farika Riau</title>
+  <title>PT. Farika Riau Perkasa</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -44,12 +43,6 @@ if (empty($_SESSION['username']) AND
           <div class="col-sm-6">
             <h1>DataTables</h1>
           </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">DataTables</li>
-            </ol>
-          </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>
@@ -60,38 +53,51 @@ if (empty($_SESSION['username']) AND
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Data</h3>
+              <h3 class="card-title">Data</h3> <br>
+              <a href='desa_add.php' class='btn btn-primary'>TAMBAH DATA</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
+                  <th>Posisi</th>
+                  <th>Tanggal Terbit</th>
+                  <th>Tanggal Akhir</th>
+                  <th>Kualifikasi</th>
                   <th>CSS grade</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>Other browsers</td>
-                  <td>All others</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>U</td>
-                </tr>
+
+                <?php 
+                $queri ="SELECT * FROM lowongan";
+                $hasil =mysqli_query($koneksi,$queri);
+                $no = 1;
+                while ($kolom=mysqli_fetch_assoc($hasil)) {
+                    ?><tr>
+                            <td><?php echo "$kolom[lowongan_posisi]";  ?></td>
+                            <td><?php echo "$kolom[lowongan_tgl_terbit]"; ?></td>
+                            <td><?php echo "$kolom[lowongan_tgl_batas]"; ?></td>
+                            <td>
+                              <?php $quer = "SELECT * FROM detail_lowongan where lowongan_id='$kolom[lowongan_id]'";
+                                $hass =mysqli_query($koneksi,$quer);
+                                while ($kol=mysqli_fetch_assoc($hass)) {
+                                  echo "
+                                   
+                                    <li>$kol[kualifikasi]</li>
+                                    
+                                    ";
+                                 } ?>
+                            </td>
+                            <td><?php echo "<a href='edit.php' class='btn btn-primary'>Edit</a>"; ?></td>
+                        </tr>
+                        <?php 
+                        $no=$no+1;
+                 } 
+                 ?>
+                
                 </tbody>
-                <tfoot>
-                <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
-                </tr>
-                </tfoot>
               </table>
             </div>
             <!-- /.card-body -->
@@ -142,3 +148,4 @@ if (empty($_SESSION['username']) AND
 </script>
 </body>
 </html>
+<?php } ?>

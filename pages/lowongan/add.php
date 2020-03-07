@@ -9,12 +9,14 @@
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" href="as.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -51,31 +53,22 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form">
-                <div class="card-body">
+              <div class="panel-body ">
+              <form role="form" action="add_proses.php" method="post">
+                <div class="card-body col-md-8">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <label for="exampleInputEmail1">Posisi</label>
+                    <input type="text" class="form-control" name="nama" placeholder="Enter email">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <label for="exampleInputPassword1">tgl</label>
+                    <input type="text" class="form-control" name="tgl" >
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputFile">File input</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text" id="">Upload</span>
-                      </div>
+                    <label for="exampleInputPassword1">Kualifikasi</label>
+                    <div class="input-group control-group after-add-more"> 
+                      <button class="btn btn-success add-more" type="button"><i class="glyphicon glyphicon-plus"></i> Add</button>
                     </div>
-                  </div>
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
                   </div>
                 </div>
                 <!-- /.card-body -->
@@ -84,48 +77,16 @@
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
-            </div>
-            <!-- /.card -->
-            <!-- Horizontal Form -->
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">Horizontal Form</h3>
+              <div class="copy hide">
+                <div class="control-group input-group" style="margin-top:10px">
+                  <input type="text" name="kel[]" class="form-control" >
+                  <div class="input-group-btn"> 
+                    <button class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-remove"></i> Hapus</button>
+                  </div>
+                </div>
               </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form class="form-horizontal">
-                <div class="card-body">
-                  <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-                    <div class="col-sm-10">
-                      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <div class="offset-sm-2 col-sm-10">
-                      <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck2">
-                        <label class="form-check-label" for="exampleCheck2">Remember me</label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-info">Sign in</button>
-                  <button type="submit" class="btn btn-default float-right">Cancel</button>
-                </div>
-                <!-- /.card-footer -->
-              </form>
+        
             </div>
-            <!-- /.card -->
-
           </div>
           </div>
             <!-- /.card -->
@@ -138,6 +99,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.0.0
@@ -164,10 +126,17 @@
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 <script type="text/javascript">
-$(document).ready(function () {
-  bsCustomFileInput.init();
-});
+    $(document).ready(function() {
+      $(".add-more").click(function(){ 
+          var html = $(".copy").html();
+          $(".after-add-more").after(html);
+      });
+      $("body").on("click",".remove",function(){ 
+          $(this).parents(".control-group").remove();
+      });
+    });
 </script>
 </body>
 </html>
