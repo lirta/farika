@@ -54,7 +54,7 @@ if (empty($_SESSION['username']) AND
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">Data</h3> <br>
-              <a href='desa_add.php' class='btn btn-primary'>TAMBAH DATA</a>
+              <a href='add.php' class='btn btn-primary'>TAMBAH DATA</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -90,7 +90,8 @@ if (empty($_SESSION['username']) AND
                                     ";
                                  } ?>
                             </td>
-                            <td><?php echo "<a href='edit.php' class='btn btn-primary'>Edit</a>"; ?></td>
+                            <td><?php echo "<a href='hapus.php?id=$kolom[lowongan_id]' onclick=\"return confirm('Apakah anda yakin akan menghapus :)\" class='btn btn-danger'><i class='fa fa-times'></i></a> 
+"; ?></td>
                         </tr>
                         <?php 
                         $no=$no+1;

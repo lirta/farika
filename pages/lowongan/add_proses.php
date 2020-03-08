@@ -1,9 +1,9 @@
 <?php
 include "../../coneksi/config.php";
 
-$id= date("y.m.d"."h.i.s");
 
-$date= date("y.m.d");
+
+$date= date("d.M.Y");
 $acak = rand(00000000, 99999999);
 $id = $_POST['nama'].$acak;
 

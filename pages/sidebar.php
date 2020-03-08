@@ -36,6 +36,27 @@
               </p>
             </a>
           </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>Soal<i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../soal/view.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Soal</p>
+                </a>
+                <li class="nav-item">
+                <a href="../soal/view.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Kategori Soal</p>
+                </a>
+              </li>
+              </li>
+            </ul>
+          </li>
 
 
           <li class="nav-item has-treeview">
@@ -51,18 +72,6 @@
                 <a href="../lowongan/view.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>lowongan</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/forms/advanced.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Advanced Elements</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/forms/editors.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Editors</p>
                 </a>
               </li>
             </ul>
