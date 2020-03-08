@@ -58,62 +58,19 @@ if (empty($_SESSION['username']) AND
 
             <div class="card card-danger">
               <div class="card-header">
-                <h3 class="card-title">Edit Data</h3>
+                <h3 class="card-title">Input Data</h3>
               </div>
               <div class="card-body">
                 <!-- Date dd/mm/yyyy -->
-                <?php
-                          $queriedit = "SELECT * FROM soal inner join kategori_soal on soal.kategori_soal_id=kategori_soal.kategori_soal_id  where id='$_GET[id]'" ;
-                          $hasiledit = mysqli_query($koneksi,$queriedit);
-                         $edit=mysqli_fetch_assoc($hasiledit);
-                        ?>
+                
 
-                  <form role="form" action="edit_proses.php" method="post">
-                    <div class="form-group" hidden="">
-                    <label >id</label>
-                    <input type="text" class="form-control" name="id" value="<?php echo "$edit[id]"; ?>">
-                  </div>
+                  <form role="form" action="add_proses.php" method="post">
                 <div class="card-body col-md-10">
                   <div class="form-group">
-                        <label>Kategori</label>
-                        <select class="custom-select" name="kat">
-                          <option value="<?php echo"$edit[kategori_soal_id]"; ?>"><?php echo"$edit[nama]"; ?></option>
-                         <?php
-                          $queri = "SELECT * FROM kategori_soal" ;
-                          $hasil = mysqli_query($koneksi,$queri);
-                         
-                          while($kolom=mysqli_fetch_assoc($hasil))
-                          {
-                             echo "<option value='$kolom[kategori_soal_id]'> $kolom[nama]</option>"; 
-                            }
-                        ?>
-                        </select>
-                      </div>
-                  <div class="form-group">
-                    <label >Soal</label>
-                    <input type="text" class="form-control" name="soal" value="<?php echo "$edit[soal]"; ?>">
+                    <label >Kategori</label>
+                    <input type="text" class="form-control" name="kat" >
                   </div>
-                  <div class="form-group">
-                    <label >Opsi A</label>
-                    <input type="text" class="form-control" name="a" value="<?php echo"$edit[a]"; ?>" >
-                  </div>
-                  <div class="form-group">
-                    <label >Opsi B</label>
-                    <input type="text" class="form-control" name="b" value="<?php echo"$edit[b]"; ?>">
-                  </div>
-                  <div class="form-group">
-                    <label >Opsi C</label>
-                    <input type="text" class="form-control" name="c" value="<?php echo"$edit[c]"; ?>">
-                  </div>
-                  <div class="form-group">
-                    <label >Opsi D</label>
-                    <input type="text" class="form-control" name="d" value="<?php echo"$edit[d]"; ?>">
-                  </div>
-                  <div class="form-group">
-                    <label >Jawaban</label>
-                    <input type="text" class="form-control" name="jawaban" value="<?php echo"$edit[jawaban]"; ?>">
-                    <div><span>Opsi a,b,c atau Opsi d</span></div>
-                  </div>
+                  
                 <!-- /.card-body -->
 
                 <div class="card-footer">

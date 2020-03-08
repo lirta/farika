@@ -49,7 +49,7 @@
                   <p>Soal</p>
                 </a>
                 <li class="nav-item">
-                <a href="../soal/view.php" class="nav-link">
+                <a href="../kategori_soal/view.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kategori Soal</p>
                 </a>
