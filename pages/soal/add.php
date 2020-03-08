@@ -54,7 +54,7 @@ if (empty($_SESSION['username']) AND
 
 
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-12">
 
             <div class="card card-danger">
               <div class="card-header">
@@ -65,7 +65,21 @@ if (empty($_SESSION['username']) AND
                 
 
                   <form role="form" action="add_proses.php" method="post">
-                <div class="card-body col-md-8">
+                <div class="card-body col-md-10">
+                  <div class="form-group">
+                        <label>Kategori</label>
+                        <select class="custom-select" name="kat">
+                         <?php
+                          $queri = "SELECT * FROM kategori_soal" ;
+                          $hasil = mysqli_query($koneksi,$queri);
+                         
+                          while($kolom=mysqli_fetch_assoc($hasil))
+                          {
+                             echo "<option value='$kolom[kategori_soal_id]'> $kolom[nama]</option>"; 
+                            }
+                        ?>
+                        </select>
+                      </div>
                   <div class="form-group">
                     <label >Soal</label>
                     <input type="text" class="form-control" name="soal" >
@@ -89,6 +103,7 @@ if (empty($_SESSION['username']) AND
                   <div class="form-group">
                     <label >Jawaban</label>
                     <input type="text" class="form-control" name="jawaban" >
+                    <div><span>Opsi a,b,c atau Opsi d</span></div>
                   </div>
                 <!-- /.card-body -->
 

@@ -67,6 +67,7 @@ if (empty($_SESSION['username']) AND
                   <th>Opsi C</th>
                   <th>Opsi D</th>
                   <th>Jawaban</th>
+                  <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -84,7 +85,8 @@ if (empty($_SESSION['username']) AND
                             <td>$kolom[c]</td>
                             <td>$kolom[d]</td>
                             <td>$kolom[jawaban]</td>
-                            <td><a href='hapus.php?id=$kolom[lowongan_id]' onclick='return confirm('Apakah anda yakin akan menghapus :)' class='btn btn-danger'><i class='fa fa-times'></i></a> </td>
+                            <td><a href='hapus.php?id=$kolom[id]' onclick=\"return confirm('Apakah anda yakin akan menghapus Soal Ini :')\" class='btn btn-danger'>Hapus</a> 
+                            <a href='edit.php?id=$kolom[id]' class='btn btn-primary'>Edit</td>
                         </tr>
                         ";
                       
