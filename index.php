@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Bee - Free Bootstrap 4 Template by Colorlib</title>
+    <title>PT. FARIKA RIAU PERKASA</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -32,7 +32,7 @@
       <div class="container">
         <div class="row no-gutters d-flex align-items-center align-items-stretch">
           <div class="col-md-4 d-flex align-items-center py-4">
-            <a class="navbar-brand" href="index.html"><span class="flaticon-bee mr-1"></span>Djaya Hydrolic</a>
+            <a class="navbar-brand" href="index.html"><span class="flaticon-bee mr-1"></span>PT. FARIKA RIAU PERKASA</a>
           </div>
           <div class="col-lg-8 d-block">
             <div class="row d-flex">
@@ -60,11 +60,11 @@
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active"><a href="index.html" class="nav-link pl-0">Branda</a></li>
-            <li class="nav-item"><a href="about.html" class="nav-link">Tentang Kami</a></li>
-            <li class="nav-item"><a href="project.html" class="nav-link">Produk</a></li>
-            <li class="nav-item"><a href="blog.html" class="nav-link">Lowongan Pekerjaan</a></li>
-            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            <li class="nav-item active"><a href="index.php" class="nav-link pl-0">Branda</a></li>
+            <li class="nav-item"><a href="Profile.php" class="nav-link">Tentang Kami</a></li>
+            <li class="nav-item"><a href="project.php" class="nav-link">Fortofolio</a></li>
+            <li class="nav-item"><a href="lowongan.php" class="nav-link">Lowongan Pekerjaan</a></li>
+            <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
           </ul>
         </div>
       </div>
@@ -249,9 +249,7 @@
               <ul class="list-unstyled">
                 <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Alamat       : PT. FARIKA RIAU PERKASA</a></li>
                 <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Email Kantor : farikariauperkasa@ymail.com, customer@farikariau.com</a></li>
-                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Painting</a></li>
-                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Interior Design</a></li>
-                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Exterior Design</a></li>
+                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Telpon Kantor: 08127589884, 081276505571</a></li>
               </ul>
             </div>
           </div>
@@ -260,7 +258,7 @@
           <div class="col-md-12 text-center">
 
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | PT. Farika Riau Perkasa </a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
         </div>

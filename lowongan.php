@@ -1,7 +1,8 @@
+<?php include 'config.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Contak</title>
+    <title>PT. FARIKA RIAU PERKASA</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -61,54 +62,76 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item "><a href="index.php" class="nav-link pl-0">Branda</a></li>
-            <li class="nav-item active"><a href="Profile.php" class="nav-link">Tentang Kami</a></li>
-            <li class="nav-item"><a href="project.php" class="nav-link">Fortofolio</a></li>
+            <li class="nav-item "><a href="Profile.php" class="nav-link">Tentang Kami</a></li>
+            <li class="nav-item active"><a href="project.php" class="nav-link">Fortofolio</a></li>
             <li class="nav-item"><a href="lowongan.php" class="nav-link">Lowongan Pekerjaan</a></li>
             <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
           </ul>
         </div>
       </div>
     </nav>
+    <!-- END nav -->
     
     <section class="hero-wrap hero-wrap-2" style="background-image:url(images/bg_1.jpg);" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
-            <h1 class="mb-2 bread">CANTAK</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="index.php">BRANDA <i class="ion-ios-arrow-forward"></i></a></span> <span>CONTAK<i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-2 bread">LOWONGAN</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.php">BRANDA <i class="ion-ios-arrow-forward"></i></a></span> <span>LOWONGAN<i class="ion-ios-arrow-forward"></i></span></p>
           </div> 
         </div>
       </div>
     </section>
-		
-		<section class="ftco-section contact-section">
+
+    <section class="ftco-section bg-light">
       <div class="container">
-        <div class="row d-flex mb-5 contact-info">
-          <div class="col-md-12 mb-4">
-            <h2 class="h4">Contact Information</h2>
-          </div>
-          <div class="w-100"></div>
-          <div class="col-md-3 d-flex">
-          	<div class="bg-light d-flex align-self-stretch box p-4">
-	            <p><span>ALAMAT:</span>PT. FARIKA RIAU PERKASA </p>
-	          </div>
-          </div>
-          <div class="col-md-3 d-flex">
-          	<div class="bg-light d-flex align-self-stretch box p-4">
-	            <p><span>Telp :</span> <a >08127589884, 081276505571</a></p>
-	          </div>
-          </div>
-          <div class="col-md-3 d-flex">
-          	<div class="bg-light d-flex align-self-stretch box p-4">
-	            <p><span>Email:</span> <a >farikariauperkasa@ymail.com, customer@farikariau.com</a></p>
-	          </div>
-          </div>
+        <div class="row">
+     <?php 
+                $queri ="SELECT * FROM lowongan ";
+                $hasil =mysqli_query($koneksi,$queri);
+                $no = 1;
+                while ($low=mysqli_fetch_assoc($hasil)) { ?>
+
+                
+          <div class="col-md-4 ftco-animate">
+            <div class="blog-entry">
+              <div class="text pt-4">
+                <h3 class="heading"><a href="#">Lowongan Bagian :<?php echo " $low[lowongan_posisi]"; ?></a></h3>
+                <h4 class="heading"><a href="#">Kualifikasi </a></h4>
+                <ul>
+                 <?php 
+                $querii ="SELECT * FROM detail_lowongan where lowongan_id='$low[lowongan_id]' ";
+                $hasill =mysqli_query($koneksi,$querii);
+                while ($loww=mysqli_fetch_assoc($hasill)) {
+                 echo " <li>$loww[kualifikasi]</li> ";
+               }
+
+                  ?>
+                  </ul>
+                  <h4 class="heading">Lamaran Palinglama Tanggal <?php echo "$low[lowongan_tgl_batas]";  ?></h4>
+                  <div class="d-flex align-items-center mt-4">
+                  <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
+                </div>
+                </div>
+              </div>
+            </div>
+          
+
+<?php
+          
+                        $no=$no+1;
+
+                 } mysqli_close($koneksi);
+                 ?>
+          
+         </div>
         </div>
       </div>
     </section>
 
-		<footer class="ftco-footer ftco-bg-dark ftco-section">
+
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md">
@@ -132,6 +155,11 @@
         </div>
       </div>
     </footer>
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
   <script src="js/jquery.min.js"></script>

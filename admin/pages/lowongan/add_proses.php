@@ -3,7 +3,7 @@ include "../../coneksi/config.php";
 
 
 
-$date= date("d.M.Y");
+$date= date("d/m/Y");
 $acak = rand(00000000, 99999999);
 $id = $_POST['nama'].$acak;
 
