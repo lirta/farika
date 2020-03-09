@@ -65,28 +65,8 @@
             <li class="nav-item "><a href="Profile.php" class="nav-link">Tentang Kami</a></li>
             <li class="nav-item "><a href="project.php" class="nav-link">Fortofolio</a></li>
             <li class="nav-item active"><a href="lowongan.php" class="nav-link">Lowongan Pekerjaan</a></li>
+            <li class="nav-item active"><a href="lowongan.php" class="nav-link">pengumuman Lowongan Pekerjaan</a></li>
             <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
-            <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>Soal<i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../soal/view.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Soal</p>
-                </a>
-                <li class="nav-item">
-                <a href="../kategori_soal/view.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Kategori Soal</p>
-                </a>
-              </li>
-              </li>
-            </ul>
-          </li>
           </ul>
         </div>
       </div>
@@ -105,18 +85,16 @@
       </div>
     </section>
 
-    <section class="ftco-section ">
+    <section class="ftco-services ftco-no-pt ">
       <div class="container">
-        <div class="row col-md-12">
-          <div class="col-md-10">
+        <div class="row">
+          
             <?php 
                 $queri ="SELECT * FROM lowongan ";
                 $hasil =mysqli_query($koneksi,$queri);
                 $no = 1;
                 while ($low=mysqli_fetch_assoc($hasil)) { ?>
-
-                
-                      <div class="col-md-8 ftco-animate">
+                      <div class="col-md-4 ftco-animate">
                         <div class="blog-entry">
                           <div class="text pt-4">
                             <h3 class="heading"><a href="#">Lowongan Bagian :<?php echo " $low[lowongan_posisi]"; ?></a></h3>
@@ -128,12 +106,10 @@
                             while ($loww=mysqli_fetch_assoc($hasill)) {
                              echo " <li>$loww[kualifikasi]</li> ";
                            }
-
                               ?>
                               </ul>
                               <h4 class="heading">Lamaran Palinglama Tanggal <?php echo "$low[lowongan_tgl_batas]";  ?></h4>
                               <div class="d-flex align-items-center mt-4">
-                              <p class="mb-0"><a href="#" class="btn btn-primary">Lamar<span class="ion-ios-arrow-round-forward"></span></a></p>
                               <p class="mb-0"><a href="#" class="btn btn-primary">Lamar<span class="ion-ios-arrow-round-forward"></span></a></p>
                             </div>
                             </div>
@@ -147,18 +123,8 @@
 
                  } mysqli_close($koneksi);
                  ?>
-              </div>
-                 <div class="col-lg-2 sidebar ftco-animate">
-            <div class="sidebar-box">
-            </div>
-            <div class="sidebar-box ftco-animate">
-              <h3>Category</h3>
-              <ul class="categories">
-                <li><a href="#">Construction <span>(6)</span></a></li>
-              </ul>
-            </div>
-          
-         </div>
+               
+                 
         </div>
       </div>
     </section>
