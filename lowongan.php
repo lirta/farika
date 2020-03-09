@@ -65,7 +65,7 @@
             <li class="nav-item "><a href="Profile.php" class="nav-link">Tentang Kami</a></li>
             <li class="nav-item "><a href="project.php" class="nav-link">Fortofolio</a></li>
             <li class="nav-item active"><a href="lowongan.php" class="nav-link">Lowongan Pekerjaan</a></li>
-            <li class="nav-item active"><a href="lowongan.php" class="nav-link">pengumuman Lowongan Pekerjaan</a></li>
+            <li class="nav-item"><a href="lowongan.php" class="nav-link">pengumuman Lowongan Pekerjaan</a></li>
             <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
           </ul>
         </div>
