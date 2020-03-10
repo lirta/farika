@@ -54,7 +54,7 @@ if (empty($_SESSION['username']) AND
 
 
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-12">
 
             <div class="card card-danger">
               <div class="card-header">

@@ -11,12 +11,8 @@
     session_start();
     $_SESSION['username']            = $r['username'];
     $_SESSION['password']            = $r['password'];
-    $_SESSION['jabatan']             = $r['pegawai_jabatan'];
-    $_SESSION['nama']                = $r['pegawai_nama'];
-    $_SESSION['foto']                = $r['pegawai_foto'];
-    $_SESSION['id']                  = $r['pegawai_id'];
 
-    header('location:../../index.php');
+    header('location:../../admin/index.php');
     mysqli_close($koneksi);
   }
   else {

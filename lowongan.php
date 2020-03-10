@@ -32,12 +32,12 @@
     <div class="bg-top navbar-light">
       <div class="container">
         <div class="row no-gutters d-flex align-items-center align-items-stretch">
-          <div class="col-md-4 d-flex align-items-center py-4">
+          <div class="col-md-5 d-flex align-items-center py-4">
             <a class="navbar-brand" href="index.html"><span class="flaticon-bee mr-1"></span>PT. FARIKA RIAU PERKASA</a>
           </div>
-          <div class="col-lg-8 d-block">
+          <div class="col-lg-7 d-block">
             <div class="row d-flex">
-              <div class="col-md d-flex topper align-items-center align-items-stretch py-md-4">
+              <div class="col-md d-flex topper align-items-center align-items-stretch py-md-3">
                 <div class="icon d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
                 <div class="text d-flex align-items-center">
                   <span>customer@farikariau.com</span>
@@ -87,6 +87,12 @@
 
     <section class="ftco-services ftco-no-pt ">
       <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+          <div class="col-md-8 text-center heading-section ftco-animate">
+            <span class="subheading">Informasi</span>
+            <h2 class="mb-4">Lowongan Pekerjaan</h2>
+          </div>
+        </div>
         <div class="row">
           
             <?php 
