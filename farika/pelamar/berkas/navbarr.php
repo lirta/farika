@@ -22,7 +22,7 @@
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
       <li class="nav-item has-treeview menu-open">
-        <a class="nav-link"  href="logout.php" class="button">
+        <a class="nav-link"  href="../logout.php" class="button">
           <span >Logout</span>
         </a>
       </li>

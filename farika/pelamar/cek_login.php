@@ -11,6 +11,10 @@
     session_start();
     $_SESSION['username']            = $r['username'];
     $_SESSION['password']            = $r['password'];
+    $_SESSION['nama']                = $r['nama'];
+    $_SESSION['hp']                  = $r['no_hp'];
+    $_SESSION['email']               = $r['email'];
+    $_SESSION['foto']                = $r['foto'];
 
     header('location:index.php');
     mysqli_close($koneksi);
