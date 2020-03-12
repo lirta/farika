@@ -60,9 +60,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="lowongan/terima.php" class="nav-link">
+                <a href="lowongan/list_lamaran.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Terima</p>
+                  <p>List Lamaran</p>
                 </a>
               </li>
               <li class="nav-item">

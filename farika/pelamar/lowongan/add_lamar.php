@@ -18,13 +18,21 @@ if (empty($_SESSION['username']) AND
                                 ('$_GET[id]',
                                 '$_SESSION[username]',
                                 '$date',
-                                'PEMOHON')";
+                                'PERMOHONAN')";
             mysqli_query($koneksi,$querii);
 
             mysqli_close($koneksi);
-            header('location:list.php');
+            echo '<script language="javascript">
+                          alert ("ANDA BERHASIL MENGAJUKAN LAMARAN PEKERJAAN  ");
+                          window.location="list.php";
+                          </script>';
+                          exit();
         }else{
-        	echo "no  $date > $lowongan[lowongan_tgl_batas]";
+        	echo '<script language="javascript">
+                          alert ("MOHON MAAF WAKTU PENDAFTARAN SUDAH HABIS");
+                          window.location="list.php";
+                          </script>';
+                          exit();
         }
 
     }

@@ -62,60 +62,46 @@ if (empty($_SESSION['username']) AND
                 <thead>
                 <tr>
                   <th>Posisi</th>
-                  <th>Tanggal Terbit</th>
-                  <th>Tanggal Akhir</th>
-                  <th>Kualifikasi</th>
-                  <th>Aksi</th>
+                  <th>Tanggal pemgajuan</th>
+                  <th>Tanggal ujian</th>
+                  <th>Status</th>
+                  <th>Keterangan</th>
                 </tr>
                 </thead>
                 <tbody>
 
                 <?php 
-                $queri ="SELECT * FROM lowongan";
+                $queri ="SELECT * FROM lamaran inner join lowongan on lamaran.lowongan =lowongan.lowongan_id where pelamar='$_SESSION[username]'";
                 $hasil =mysqli_query($koneksi,$queri);
                 $no = 1;
                 while ($kolom=mysqli_fetch_assoc($hasil)) {
-                  $queriii ="SELECT * FROM lamaran where lowongan='$kolom[lowongan_id]' AND pelamar='$_SESSION[username]'";
-                $hasilll =mysqli_query($koneksi,$queriii);
-                $lam=mysqli_fetch_assoc($hasilll);
-                  if (!empty($lam)) { ?>
+                   ?>
                     <tr>
                       <td><?php echo "$kolom[lowongan_posisi]";  ?></td>
-                      <td><?php echo "$kolom[lowongan_tgl_terbit]"; ?></td>
-                      <td><?php echo "$kolom[lowongan_tgl_batas]"; ?></td>
-                      <td>
-                        <?php $quer = "SELECT * FROM detail_lowongan where lowongan_id='$kolom[lowongan_id]'";
-                          $hass =mysqli_query($koneksi,$quer);
-                          while ($kol=mysqli_fetch_assoc($hass)) {
-                            echo "<li>$kol[kualifikasi]</li>";
-                           } ?>
-                      </td>
-                      <td> </td>
-                        </tr>
+                      <td><?php echo "$kolom[tgl_lamaran]"; ?></td>
+                      <td><?php echo "$kolom[tgl_ujian]"; ?></td>
+                      <td><?php echo "$kolom[status]"; ?></td>
+                      <?php 
+                        if ($kolom['status'] == "ADM") 
+                        {
+                            $date= date("d/m/Y");
+                            if ($kolom['tgl_ujian'] >= $date)  {
+                              echo "<td><a href='cek_ujian.php?id=$kolom[id]' class='btn btn-danger'>Ujian</a></td>";
+                            }else{
+                              echo "<td>Mohon Ma'af Ujian Anda Terlewatkan/td>";
+                            }
+                        }elseif ($kolom['status'] == "LULUS") {
+                          echo "<td>SELAMAT ANDA TELAH LULUS UJIAN, SILAHKAN MENUNGGU KONFIRMASI BERIKUTNYA</td>";
+                        }elseif ($kolom['status'] == "TOLAK") {
+                          echo "<td>MOHON MA'AF ANDA BELUM DITERIMA</td>";
+                        }elseif ($kolom['status'] == "PERMOHONAN"){
+                          echo "<td>LAMARAN ANDA SEDANG DIPROSES</td>";
+                        } ?>
+                      
+                    </tr>
                         <?php 
                         $no=$no+1;
-                 }else{ 
-                 
-                    ?><tr>
-                            <td><?php echo "$kolom[lowongan_posisi]";  ?></td>
-                            <td><?php echo "$kolom[lowongan_tgl_terbit]"; ?></td>
-                            <td><?php echo "$kolom[lowongan_tgl_batas]"; ?></td>
-                            <td>
-                              <?php $quer = "SELECT * FROM detail_lowongan where lowongan_id='$kolom[lowongan_id]'";
-                                $hass =mysqli_query($koneksi,$quer);
-                                while ($kol=mysqli_fetch_assoc($hass)) {
-                                  echo "
-                                   
-                                    <li>$kol[kualifikasi]</li>
-                                    
-                                    ";
-                                 } ?>
-                            </td>
-                            <td><?php echo "<a href='add_lamar.php?id=$kolom[lowongan_id]' onclick=\"return confirm('Sebelum Melakukan LAMARAN PEKERJAAN Pastikan BERKAS anda Sudah LENGKAP')\" class='btn btn-danger'>LAMAR</a>"; ?></td>
-                        </tr>
-                        <?php 
-                        $no=$no+1;
-                 } }
+                  }
                  ?>
                 
                 </tbody>
