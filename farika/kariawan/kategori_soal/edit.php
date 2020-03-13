@@ -2,7 +2,7 @@
 if (!isset($_SESSION)) {session_start();}
 if (empty($_SESSION['username']) AND
     empty($_SESSION['password']))
-    { header('location:pages/login/login.php');}
+    { header('location:../../pages/login/login.php');}
     else {
      
 ?>

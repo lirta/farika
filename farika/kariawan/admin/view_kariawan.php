@@ -28,7 +28,7 @@ if (empty($_SESSION['username']) AND
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
-  <?php include '../navbar.php'; include '../sidebar.php'; ?>
+  <?php include 'navbar.php'; include 'sidebar.php'; ?>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
@@ -41,7 +41,7 @@ if (empty($_SESSION['username']) AND
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Data Kategori Soal</h1>
+            <h1>DataTables</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -54,32 +54,48 @@ if (empty($_SESSION['username']) AND
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">Data</h3> <br>
-              <a href='add.php' class='btn btn-primary'>TAMBAH DATA</a>
+              <a href='add_kariawan.php' class='btn btn-primary'>TAMBAH DATA</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Kategori</th>
+                  <th>Nama</th>
+                  <th>Username</th>
+                  <th>Tempat Lahir</th>
+                  <th>Tanggal Lahir</th>
+                  <th>Jenis Kelamin</th>
+                  <th>Agama</th>
+                  <th>No Hp</th>
+                  <th>Alamat</th>
+                  <th>Jabatan</th>
+                  <th>Foto</th>
                   <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
 
                 <?php 
-                $queri ="SELECT * FROM Kategori_soal";
+                $queri ="SELECT * FROM Kariawan";
                 $hasil =mysqli_query($koneksi,$queri);
                 $no = 1;
                 while ($kolom=mysqli_fetch_assoc($hasil)) {
-                  echo "
-                    <tr>
-                            <td>$kolom[nama]</td>
-                            <td><a href='hapus.php?id=$kolom[kategori_soal_id]' onclick=\"return confirm('Apakah anda yakin akan menghapus Soal Ini :')\" class='btn btn-danger'>Hapus</a> 
-                            <a href='edit.php?id=$kolom[kategori_soal_id]' class='btn btn-primary'>Edit</td>
+                    ?><tr>
+                            <td><?php echo "$kolom[kariawan_nama]";  ?></td>
+                            <td><?php echo "$kolom[username]"; ?></td>
+                            <td><?php echo "$kolom[kariawan_tmp_lhr]"; ?></td>
+                            <td><?php echo "$kolom[kariawan_tgl_lhr]";  ?></td>
+                            <td><?php echo "$kolom[kariawan_jns_kel]"; ?></td>
+                            <td><?php echo "$kolom[kariawan_agama]"; ?></td>
+                            <td><?php echo "$kolom[kariawan_hp]";  ?></td>
+                            <td><?php echo "$kolom[kariawan_alamat]"; ?></td>
+                            <td><?php echo "$kolom[kariawan_jabatan]"; ?></td>
+                            <td><img src="<?php echo "../foto/$kolom[kariawan_foto]"; ?>" width="100xp"></td>
+                            <td><?php echo "<a href='hapus_kariawan.php?id=$kolom[username]' onclick=\"return confirm('Apakah anda yakin akan menghapus :)\" class='btn btn-danger'><i class='fa fa-times'></i></a> 
+"; ?></td>
                         </tr>
-                        ";
-                      
+                        <?php 
                         $no=$no+1;
                  } 
                  ?>

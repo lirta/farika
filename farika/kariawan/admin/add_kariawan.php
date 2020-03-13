@@ -43,7 +43,7 @@ if (empty($_SESSION['username']) AND
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
-  <?php include '../navbar.php'; include '../sidebar.php'; ?>
+  <?php include 'navbar.php'; include 'sidebar.php'; ?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -58,25 +58,89 @@ if (empty($_SESSION['username']) AND
 
             <div class="card card-danger">
               <div class="card-header">
-                <h3 class="card-title">Input Data</h3>
+                <h3 class="card-title">Input Data Kariawan</h3>
               </div>
               <div class="card-body">
                 <!-- Date dd/mm/yyyy -->
                 
 
-                  <form role="form" action="add_proses.php" method="post">
-                <div class="card-body col-md-10">
+                  <form role="form" action="add_kariawan_proses.php" method="post" enctype="multipart/form-data">
+                <div class="card-body col-md-8">
                   <div class="form-group">
-                    <label >Kategori</label>
-                    <input type="text" class="form-control" name="kat" >
+                    <label >Nama</label>
+                    <input type="text" class="form-control" name="nama" >
                   </div>
-                  
+                  <div class="form-group">
+                    <label >Username</label>
+                    <input type="text" class="form-control" name="username" >
+                  </div>
+                  <div class="form-group">
+                    <label >Password</label>
+                    <input type="password" class="form-control" name="password" >
+                  </div>
+                  <div class="form-group">
+                    <label >Tempat Lahir</label>
+                    <input type="text" class="form-control" name="tmp_l" >
+                  </div>
+                  <div class="form-group">
+                    <label >Tanggal Lahir</label>
+                    <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="tgl_l" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label >Jenis Kelamin</label>
+                    <select class="custom-select" name="kel">
+                    <option>Laki-laki</option>
+                    <option>Perempuan</option>     
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label >Agama</label>
+                    <select class="custom-select" name="agama">
+                    <option>Islam</option>
+                    <option>Katolik</option>
+                    <option>Kristen Protestan</option>
+                    <option>Hindu</option>
+                    <option>Buddha</option>
+                    <option>Kong Hu Cu</option>     
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label >No Hp</label>
+                    <input type="text" class="form-control" name="hp" >
+                  </div>
+                  <div class="form-group">
+                    <label >Alamat</label>
+                    <input type="text" class="form-control" name="alamat" >
+                  </div>
+                  <div class="form-group">
+                    <label >Jabatan</label>
+                    <select class="custom-select" name="jabatan">
+                    <option>ADMIN</option>
+                    <option>HRD</option>     
+                    </select>
+                  </div>
+                <div class="form-group">
+                    <label for="exampleInputFile">Foto</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="exampleInputFile" name="foto">
+                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      </div>
+                    </div>
+                  </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
+
+                 
                   <!-- /.input group -->
                 
               </div>
@@ -130,16 +194,16 @@ if (empty($_SESSION['username']) AND
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
 <!-- Page script -->
-<script>
-  $(document).ready(function() {
-      $(".add-more").click(function(){ 
-          var html = $(".copy").html();
-          $(".after-add-more").after(html);
-      });
-      $("body").on("click",".remove",function(){ 
-          $(this).parents(".control-group").remove();
-      });
-    });
+
+
+
+<!-- bs-custom-file-input -->
+<script src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<!-- AdminLTE App -->
+<script >
+  $(document).ready(function () {
+  bsCustomFileInput.init();
+});
   $(function () {
     //Initialize Select2 Elements
     $('.select2').select2()

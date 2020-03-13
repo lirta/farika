@@ -2,7 +2,7 @@
 if (!isset($_SESSION)) {session_start();}
 if (empty($_SESSION['username']) AND
     empty($_SESSION['password']))
-    { header('location:pages/login/login.php');}
+    { header('location:../../pages/login/login.php');}
     else {
      
 ?>
@@ -79,12 +79,6 @@ if (empty($_SESSION['username']) AND
                     <input type="text" class="form-control" name="tgl" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label >Kualifikasi</label>
-                    <div class="input-group control-group after-add-more"> 
-                      <button class="btn btn-success add-more" type="button"><i class="glyphicon glyphicon-plus"></i> Add</button>
-                    </div>
-                  </div>
                 </div>
                 <!-- /.card-body -->
 
@@ -92,17 +86,6 @@ if (empty($_SESSION['username']) AND
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
-
-                  <div class="copy hide">
-                <div class="control-group input-group" style="margin-top:10px">
-                  <input type="text" name="kel[]" class="form-control" >
-                  <div class="input-group-btn"> 
-                    <button class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-remove"></i> Hapus</button>
-                  </div>
-                </div>
-              </div>
-                  <!-- /.input group -->
-                
               </div>
               <!-- /.card-body -->
             </div>

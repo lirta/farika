@@ -3,7 +3,7 @@ if (!isset($_SESSION)) {session_start();
 }
 if (empty($_SESSION['username']) AND
     empty($_SESSION['password']))
-    {include "../login.php";}
+    {header('location:../login.php');}
     else {
       $date= date("d/m/Y");
       $queri ="SELECT * FROM lamaran WHERE id='$_GET[id]'";
