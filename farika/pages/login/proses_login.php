@@ -11,9 +11,18 @@
     session_start();
     $_SESSION['username']            = $r['username'];
     $_SESSION['password']            = $r['password'];
+    $_SESSION['foto']                = $r['kariawan_foto'];
+    $_SESSION['akses']               = $r['kariawan_jabatan'];
 
-    header('location:../../admin/index.php');
+    if ($_SESSION['akses'] == "ADMIN") {
+      header('location:../../kariawan/admin/index.php');
     mysqli_close($koneksi);
+    }elseif ($_SESSION['HRD'] == "HRD") {
+      header('location:../../kariawan/hrd/index.php');
+    mysqli_close($koneksi);
+    }
+
+    
   }
   else {
     header('location:login.php');
