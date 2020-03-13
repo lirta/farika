@@ -88,7 +88,7 @@ if (empty($_SESSION['username']) AND
                             if ($kolom['tgl_ujian'] >= $date)  {
                               echo "<td><a href='cek_ujian.php?id=$kolom[id]' class='btn btn-danger'>Ujian</a></td>";
                             }else{
-                              echo "<td>Mohon Ma'af Ujian Anda Terlewatkan/td>";
+                              echo "<td>Mohon Ma'af Ujian Anda Terlewatkan</td>";
                             }
                         }elseif ($kolom['status'] == "LULUS") {
                           echo "<td>SELAMAT ANDA TELAH LULUS UJIAN, SILAHKAN MENUNGGU KONFIRMASI BERIKUTNYA</td>";
