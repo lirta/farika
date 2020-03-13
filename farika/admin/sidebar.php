@@ -19,7 +19,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link">
+            <a href="index.php" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -28,12 +28,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="../pages/widgets.html" class="nav-link">
+            <a href="calon_pelamar/view.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
-              <p>
-                Widgets
-                <span class="right badge badge-danger">New</span>
-              </p>
+              <p>Calon Pelamar</p>
             </a>
           </li>
 
@@ -42,27 +39,36 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                Forms
+                Master Lowongan
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../pages/lowongan/view.php" class="nav-link">
+                <a href="lowongan/view.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>lowongan</p>
                 </a>
               </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>Soal<i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../pages/forms/advanced.html" class="nav-link">
+                <a href="soal/view.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Advanced Elements</p>
+                  <p>Soal</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="../pages/forms/editors.html" class="nav-link">
+                <li class="nav-item">
+                <a href="kategori_soal/view.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Editors</p>
+                  <p>Kategori Soal</p>
                 </a>
               </li>
             </ul>

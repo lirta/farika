@@ -90,12 +90,15 @@ if (empty($_SESSION['username']) AND
                             }else{
                               echo "<td>Mohon Ma'af Ujian Anda Terlewatkan</td>";
                             }
-                        }elseif ($kolom['status'] == "LULUS") {
-                          echo "<td>SELAMAT ANDA TELAH LULUS UJIAN, SILAHKAN MENUNGGU KONFIRMASI BERIKUTNYA</td>";
-                        }elseif ($kolom['status'] == "TOLAK") {
+                        }
+                        elseif ($kolom['status'] == "TOLAK") {
                           echo "<td>MOHON MA'AF ANDA BELUM DITERIMA</td>";
                         }elseif ($kolom['status'] == "PERMOHONAN"){
                           echo "<td>LAMARAN ANDA SEDANG DIPROSES</td>";
+                        }elseif ($kolom['status'] == "LULUS") {
+                          echo "<td>SELAMAT ANDA TELAH LULUS UJIAN, SILAHKAN MENUNGGU KONFIRMASI BERIKUTNYA</td>";
+                        }elseif ($kolom['status'] == "GAGAL") {
+                          echo "<td>MAAF ANDA GAGAL UJIAN</td>";
                         } ?>
                       
                     </tr>

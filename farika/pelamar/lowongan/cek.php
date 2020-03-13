@@ -1,9 +1,16 @@
 <?php 
 include "../../coneksi/config.php";
 
+
+$acak = rand(00000000, 99999999);
+$date= date("d/m/Y");
 $id=$_POST["id"];
 $kel=$_POST["ket"];
 $jml=$_POST["jml"];
+$lowongan=$_POST["low"];
+$user = $_POST["user"];
+$ujian = $user.$acak;
+$lamaran=$_POST["lamaran"];
         $jmls=0;
         $jmlb=0;
          $a=$_POST["pilihan"];
@@ -19,18 +26,64 @@ $jml=$_POST["jml"];
             
             if (!empty($soal)) 
             {
-              $benar=$soal["jawaban"];
               $jmlb=$jmlb+1;
-              echo "jawaban anda benar $benar dengan kategori $ket <br>";
+              $querii="INSERT INTO detail_ujian (
+                ujian_id,
+                kategori,
+                id_soal,
+                jawaban) 
+                values 
+                ('$ujian',
+                '$ket',
+                '$s',
+                '$jawab')";
+              mysqli_query($koneksi,$querii);
             }else{
-              $benar=$soal["jawaban"];
               $jmls=$jmls+1;
-              echo "jawaban anda $jawab salah, dengan kategori $ket <br>";
+             $querii="INSERT INTO detail_ujian (
+                ujian_id,
+                kategori,
+                id_soal,
+                jawaban) 
+                values 
+                ('$ujian',
+                '$ket',
+                '$s',
+                '$jawab')";
+              mysqli_query($koneksi,$querii);
             }
           }
-            
 
-                   echo " benar = $jmlb <br> salah = $jmls";  
+          $nilai=100/$jumlah*$jmlb;
+
+          if ($nilai > 70) {
+            $keputusan="LULUS";
+          }else{
+            $keputusan="GAGAL";
+          }
+
+          $querlamaran="UPDATE lamaran SET status = '$keputusan' WHERE id = '$lamaran'";
+              mysqli_query($koneksi,$querlamaran);
+            
+$querujian="INSERT INTO ujian (
+                ujian_id,
+                id_lowongan,
+                pelamar_id,
+                tgl_ujian,
+                benar,
+                salah) 
+                values 
+                ('$ujian',
+                '$lowongan',
+                '$user',
+                '$date',
+                '$jmlb',
+                '$jmls')";
+              mysqli_query($koneksi,$querujian);
+
+mysqli_close($koneksi);
+header('location:list_lamaran.php')
+                   
 
 
 
