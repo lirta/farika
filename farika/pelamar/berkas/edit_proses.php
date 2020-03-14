@@ -15,15 +15,15 @@ $acak = rand(00000000, 99999999);
 	if (!empty($folderawalijazah)) {
 
 	move_uploaded_file($folderawalijazah,$foldertujuanijazah.$namaijazah);
-$queri="UPDATE berkas_pendukung SET  pelamar 		='$_POST[pelamar]',
-							 	nama_berkas		='$_POST[nama]',
-							 	berkas			='$namaijazah'
-							 	where id ='$_POST[id]'";
-
-}else{
 	$queri="UPDATE berkas_pendukung SET  pelamar 		='$_POST[pelamar]',
-							 	nama_berkas		='$_POST[nama]'
-							 	where id ='$_POST[id]'";
+							 			 nama_berkas	='$_POST[nama]',
+							 			 berkas			='$namaijazah'
+							 			 where id 		='$_POST[id]'";
+
+	}else{
+	$queri="UPDATE berkas_pendukung SET  pelamar 		='$_POST[pelamar]',
+							 			 nama_berkas	='$_POST[nama]'
+							 			 where id 		='$_POST[id]'";
 
 }
 

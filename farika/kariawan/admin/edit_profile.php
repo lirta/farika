@@ -68,8 +68,12 @@ if (empty($_SESSION['username']) AND
                   $hasil =mysqli_query($koneksi,$queri);
                   $kolom=mysqli_fetch_assoc($hasil);
                       ?>                                                
-                  <form role="form" action="add_kariawan_proses.php" method="post" enctype="multipart/form-data">
-                <div class="card-body col-md-8">
+                  <form role="form" action="edit_kariawan_proses.php" method="post" enctype="multipart/form-data">
+                <div class="card-body col-md-8" h>
+                  <div class="form-group" hidden="">
+                    <label >username</label>
+                    <input type="text" class="form-control" name="username" value="<?php echo "$kolom[username]"; ?>">
+                  </div>
                   <div class="form-group">
                     <label >Nama</label>
                     <input type="text" class="form-control" name="nama" value="<?php echo "$kolom[kariawan_nama]"; ?>">
@@ -122,7 +126,8 @@ if (empty($_SESSION['username']) AND
                         <input type="file" class="custom-file-input" id="exampleInputFile" name="foto">
                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                       </div>
-                    </div>
+                    </div><br>
+                    <img src="<?php echo "../foto/$kolom[kariawan_foto]"; ?>" width="100xp">
                   </div>
                 <!-- /.card-body -->
 
