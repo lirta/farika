@@ -28,7 +28,7 @@ if (empty($_SESSION['username']) AND
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
-  <?php include '../navbar.php'; include '../sidebar.php'; ?>
+  <?php include 'navbar.php'; include 'sidebar.php'; ?>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->

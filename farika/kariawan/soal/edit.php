@@ -43,7 +43,7 @@ if (empty($_SESSION['username']) AND
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
-  <?php include '../navbar.php'; include '../sidebar.php'; ?>
+  <?php include 'navbar.php'; include 'sidebar.php'; ?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -137,8 +137,7 @@ if (empty($_SESSION['username']) AND
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.0.0
     </div>
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
-    reserved.
+    <strong>Copyright &copy; PT> FARIKA RIAU PERKASA</strong>
   </footer>
 
   <!-- Control Sidebar -->

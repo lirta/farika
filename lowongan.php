@@ -65,8 +65,9 @@
             <li class="nav-item "><a href="Profile.php" class="nav-link">Tentang Kami</a></li>
             <li class="nav-item "><a href="project.php" class="nav-link">Fortofolio</a></li>
             <li class="nav-item active"><a href="lowongan.php" class="nav-link">Lowongan Pekerjaan</a></li>
-            <li class="nav-item"><a href="lowongan.php" class="nav-link">pengumuman Lowongan Pekerjaan</a></li>
             <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="farika/pages/login/login.php" class="nav-link">Login Kariawan</a></li>
+            <li class="nav-item"><a href="farika/pelamar/login.php" class="nav-link">Login Pelamar</a></li>
           </ul>
         </div>
       </div>
@@ -116,7 +117,7 @@
                               </ul>
                               <h4 class="heading">Lamaran Palinglama Tanggal <?php echo "$low[lowongan_tgl_batas]";  ?></h4>
                               <div class="d-flex align-items-center mt-4">
-                              <p class="mb-0"><a href="#" class="btn btn-primary">Lamar<span class="ion-ios-arrow-round-forward"></span></a></p>
+                              <p class="mb-0"><a href="farika/pelamar/lowongan/list.php" target="_blank" class="btn btn-primary">Lamar<span class="ion-ios-arrow-round-forward"></span></a></p>
                             </div>
                             </div>
                           </div>

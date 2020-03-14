@@ -2,7 +2,7 @@
 if (!isset($_SESSION)) {session_start();}
 if (empty($_SESSION['username']) AND
     empty($_SESSION['password']))
-    { header('location:pages/login/login.php');}
+    { header('location:../../pages/login/login.php');}
     else {
      
 ?>
@@ -58,52 +58,25 @@ if (empty($_SESSION['username']) AND
 
             <div class="card card-danger">
               <div class="card-header">
-                <h3 class="card-title">Input Data</h3>
+                <h3 class="card-title">Input Data Kariawan</h3>
               </div>
               <div class="card-body">
                 <!-- Date dd/mm/yyyy -->
                 
-
-                  <form role="form" action="add_proses.php" method="post">
-                <div class="card-body col-md-10">
-                  <div class="form-group">
-                        <label>Kategori</label>
-                        <select class="custom-select" name="kat">
-                         <?php
-                          $queri = "SELECT * FROM kategori_soal" ;
-                          $hasil = mysqli_query($koneksi,$queri);
-                         
-                          while($kolom=mysqli_fetch_assoc($hasil))
-                          {
-                             echo "<option value='$kolom[kategori_soal_id]'> $kolom[nama]</option>"; 
-                            }
-                        ?>
-                        </select>
-                      </div>
-                  <div class="form-group">
-                    <label >Soal</label>
-                    <input type="text" class="form-control" name="soal" >
+                                                                
+                  <form role="form" action="password_proses.php" method="post" enctype="multipart/form-data">
+                <div class="card-body col-md-8" h>
+                  <div class="form-group" hidden="">
+                    <label >username</label>
+                    <input type="text" class="form-control" name="username" value="<?php echo "$_SESSION[username]"; ?>">
                   </div>
                   <div class="form-group">
-                    <label >Opsi A</label>
-                    <input type="text" class="form-control" name="a" >
+                    <label >Password Lama</label>
+                    <input type="password" class="form-control" name="passlama" >
                   </div>
                   <div class="form-group">
-                    <label >Opsi B</label>
-                    <input type="text" class="form-control" name="b" >
-                  </div>
-                  <div class="form-group">
-                    <label >Opsi C</label>
-                    <input type="text" class="form-control" name="c" >
-                  </div>
-                  <div class="form-group">
-                    <label >Opsi D</label>
-                    <input type="text" class="form-control" name="d" >
-                  </div>
-                  <div class="form-group">
-                    <label >Jawaban</label>
-                    <input type="text" class="form-control" name="jawaban" >
-                    <div><span>Opsi a,b,c atau Opsi d</span></div>
+                    <label >Password Baru</label>
+                    <input type="password" class="form-control" name="passbaru" >
                   </div>
                 <!-- /.card-body -->
 
@@ -111,6 +84,8 @@ if (empty($_SESSION['username']) AND
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
+
+                 
                   <!-- /.input group -->
                 
               </div>
@@ -128,7 +103,8 @@ if (empty($_SESSION['username']) AND
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.0.0
     </div>
-    <strong>Copyright &copy; PT> FARIKA RIAU PERKASA</strong>
+    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
+    reserved.
   </footer>
 
   <!-- Control Sidebar -->
@@ -163,16 +139,16 @@ if (empty($_SESSION['username']) AND
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
 <!-- Page script -->
-<script>
-  $(document).ready(function() {
-      $(".add-more").click(function(){ 
-          var html = $(".copy").html();
-          $(".after-add-more").after(html);
-      });
-      $("body").on("click",".remove",function(){ 
-          $(this).parents(".control-group").remove();
-      });
-    });
+
+
+
+<!-- bs-custom-file-input -->
+<script src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<!-- AdminLTE App -->
+<script >
+  $(document).ready(function () {
+  bsCustomFileInput.init();
+});
   $(function () {
     //Initialize Select2 Elements
     $('.select2').select2()

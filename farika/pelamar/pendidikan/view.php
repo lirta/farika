@@ -47,9 +47,9 @@ if (empty($_SESSION['username']) AND
       </div><!-- /.container-fluid -->
     </section>
     <?php 
-                $queri ="SELECT * FROM pendidikan where pelamar='$_SESSION[username]'";
-                $hasil =mysqli_query($koneksi,$queri);
-                $kolom=mysqli_fetch_assoc($hasil) ?>
+      $queri ="SELECT * FROM pendidikan where pelamar='$_SESSION[username]'";
+      $hasil =mysqli_query($koneksi,$queri);
+      $kolom=mysqli_fetch_assoc($hasil); ?>
     <!-- Main content -->
     <section class="content">
       <div class="row">
@@ -72,22 +72,19 @@ if (empty($_SESSION['username']) AND
                   <th>Jurusan</th>
                   <th>Ijazah</th>
                   <th>Transkip Nilai</th>
+                  <th>CV</th>
                 </tr>
                 </thead>
                 <tbody>
-
                 <?php 
-                
                   echo "
                     <tr>
-                            <td>$kolom[pendidikan]</td>
-                            <td>$kolom[jurusan]</td>
-                            <td><img src='../berkas_foto/$kolom[ijazah]' width='500px'> </td>
-                            <td><img src='../berkas_foto/$kolom[transkip_nilai]' width='500px'></td>
-                        </tr>
-                        ";
-                 ?>
-                
+                      <td width='10px'>$kolom[pendidikan]</td>
+                      <td>$kolom[jurusan]</td>
+                      <td><img src='../berkas_foto/$kolom[ijazah]' width='200px'> </td>
+                      <td><img src='../berkas_foto/$kolom[transkip_nilai]' width='200px'></td>
+                      <td><img src='../berkas_foto/$kolom[cv]' width='200px'></td>
+                    </tr>";?>
                 </tbody>
               </table>
             </div>

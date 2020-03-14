@@ -28,7 +28,7 @@ if (empty($_SESSION['username']) AND
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
-  <?php include '../navbar.php'; include '../sidebar.php'; ?>
+  <?php include 'navbar.php'; include 'sidebar.php'; ?>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
@@ -98,7 +98,12 @@ if (empty($_SESSION['username']) AND
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-<?php include '../footer.php'; ?>
+<footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.0.0
+    </div>
+    <strong>Copyright &copy; PT> FARIKA RIAU PERKASA</strong>
+  </footer>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

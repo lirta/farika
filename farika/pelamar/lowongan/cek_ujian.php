@@ -172,7 +172,9 @@ if (empty($_SESSION['username']) AND
                   <input type="radio"  name="pilihan[<?php echo "$soal[id]"; ?>]" value="b">
                   <label for="female">B . <?php echo "$soal[b]"; ?></label><br>
                   <input type="radio"  name="pilihan[<?php echo "$soal[id]"; ?>]" value="c">
-                  <label for="other">C . <?php echo "$soal[c]"; ?></label>
+                  <label for="other">C . <?php echo "$soal[c]"; ?></label><br>
+                  <input type="radio"  name="pilihan[<?php echo "$soal[id]"; ?>]" value="d">
+                  <label for="other">D . <?php echo "$soal[d]"; ?></label>
 
                   <br>  
 

@@ -2,7 +2,7 @@
 if (!isset($_SESSION)) {session_start();}
 if (empty($_SESSION['username']) AND
     empty($_SESSION['password']))
-    {header('location:../login.php');}
+    { header('location:../../pages/login/login.php');}
     else {
 ?>
 <!DOCTYPE html>
@@ -28,7 +28,7 @@ if (empty($_SESSION['username']) AND
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <!-- Navbar -->
-  <?php include '../navbarr.php'; include '../sidebarr.php'; ?>
+  <?php include 'navbar.php'; include 'sidebar.php'; ?>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
@@ -41,47 +41,50 @@ if (empty($_SESSION['username']) AND
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Data Kategori Soal</h1>
+            <h1>DataTables</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>
-   
+
     <!-- Main content -->
     <section class="content">
       <div class="row">
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Data</h3> <br>
-              <a href="add.php" class="btn btn-primary">TAMBAH DATA</a>
+              <h3 class="card-title">Data Pelamar</h3> <br>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Nama Berkas</th>
-                  <th>Berkas</th>
+                  <th>Nama</th>
+                  <th>Tanggal Lahir</th>
+                  <th>Jenis Kelamin</th>
+                  <th>Pendidikan Terakhir</th>
+                  <th>jurusan</th>
                   <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
 
                 <?php 
-                $queri ="SELECT * FROM berkas_pendukung where pelamar='$_SESSION[username]'";
+                $queri ="SELECT * FROM pelamar inner join pendidikan on pelamar.username=pendidikan.pelamar";
                 $hasil =mysqli_query($koneksi,$queri);
                 $no = 1;
                 while ($kolom=mysqli_fetch_assoc($hasil)) {
-                  echo "
-                    <tr>
-                            <td>$kolom[nama_berkas]</td>
-                            <td><img src='../berkas_foto/$kolom[berkas]' width='400xp'></td>
-                            <td><a href='hapus.php?id=$kolom[id]' onclick=\"return confirm('Apakah anda yakin akan menghapus  Ini :')\" class='btn btn-danger'>Hapus</a> 
-                            <a href='edit.php?id=$kolom[id]' class='btn btn-primary'>Edit</td>
+                    ?><tr>
+                            <td><?php echo "<a href='detail_pelamar.php?id=$kolom[username]' target='_blank' >$kolom[nama]</a>";  ?></td>
+                            <td><?php echo "$kolom[tgl_lhr]";  ?></td>
+                            <td><?php echo "$kolom[jns_kel]";  ?></td>
+                            <td><?php echo "$kolom[pendidikan]";  ?></td>
+                            <td><?php echo "$kolom[jurusan]";  ?></td>
+                            <td><?php echo "<a href='hapus_kariawan.php?id=$kolom[username]' onclick=\"return confirm('Apakah anda yakin akan menghapus :)\" class='btn btn-danger'><i class='fa fa-times'></i></a> 
+"; ?></td>
                         </tr>
-                        ";
-                      
+                        <?php 
                         $no=$no+1;
                  } 
                  ?>

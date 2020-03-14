@@ -8,6 +8,11 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
 
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
     
@@ -65,6 +70,8 @@
             <li class="nav-item"><a href="project.php" class="nav-link">Fortofolio</a></li>
             <li class="nav-item"><a href="lowongan.php" class="nav-link">Lowongan Pekerjaan</a></li>
             <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="farika/pages/login/login.php" class="nav-link">Login Kariawan</a></li>
+            <li class="nav-item"><a href="farika/pelamar/login.php" class="nav-link">Login Pelamar</a></li>
           </ul>
         </div>
       </div>

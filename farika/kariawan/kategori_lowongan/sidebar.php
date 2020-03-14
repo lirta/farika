@@ -28,13 +28,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="profile.php" class="nav-link">
+            <a href="../profile.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>Profil</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="view_kariawan.php" class="nav-link">
+            <a href="../admin/view_kariawan.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>Kariawan</p>
             </a>
@@ -61,11 +61,28 @@
             </ul>
           </li>
 
-          <li class="nav-item">
-            <a href="lowongan/view.php" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>Master Lowongan</p>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Master Lowongan
+                <i class="fas fa-angle-left right"></i>
+              </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../lowongan/view.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Kategori lowongan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../lowongan/view.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>lowongan</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">

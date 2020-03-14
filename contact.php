@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Contak</title>
+    <title>PT. FARIKA RIAU PERKASA</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -65,6 +65,8 @@
             <li class="nav-item"><a href="project.php" class="nav-link">Fortofolio</a></li>
             <li class="nav-item"><a href="lowongan.php" class="nav-link">Lowongan Pekerjaan</a></li>
             <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="farika/pages/login/login.php" class="nav-link">Login Kariawan</a></li>
+            <li class="nav-item"><a href="farika/pelamar/login.php" class="nav-link">Login Pelamar</a></li>
           </ul>
         </div>
       </div>

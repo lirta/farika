@@ -65,6 +65,8 @@
             <li class="nav-item active"><a href="project.php" class="nav-link">Fortofolio</a></li>
             <li class="nav-item"><a href="lowongan.php" class="nav-link">Lowongan Pekerjaan</a></li>
             <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="farika/pages/login/login.php" class="nav-link">Login Kariawan</a></li>
+            <li class="nav-item"><a href="farika/pelamar/login.php" class="nav-link">Login Pelamar</a></li>
           </ul>
         </div>
       </div>
