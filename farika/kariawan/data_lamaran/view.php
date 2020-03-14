@@ -54,7 +54,6 @@ if (empty($_SESSION['username']) AND
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">Data</h3> <br>
-              <a href='add.php' class='btn btn-primary'>TAMBAH DATA</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -65,7 +64,6 @@ if (empty($_SESSION['username']) AND
                   <th>Tanggal Terbit</th>
                   <th>Tanggal Akhir</th>
                   <th>Kualifikasi</th>
-                  <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -76,7 +74,8 @@ if (empty($_SESSION['username']) AND
                 $no = 1;
                 while ($kolom=mysqli_fetch_assoc($hasil)) {
                     ?><tr>
-                            <td><?php echo "$kolom[lowongan_posisi]";  ?></td>
+
+                            <td><?php if ($_SESSION['akses'] == "ADMIN") { echo "<a href='lamaran_masuk.php?id=$kolom[lowongan_id]' target='_blank'>$kolom[lowongan_posisi]</a>"; }else{echo "<a href='lamaran_masuk_hrd.php?id=$kolom[lowongan_id]' target='_blank'>$kolom[lowongan_posisi]</a>";} ?></td>
                             <td><?php echo "$kolom[lowongan_tgl_terbit]"; ?></td>
                             <td><?php echo "$kolom[lowongan_tgl_batas]"; ?></td>
                             <td>
@@ -90,8 +89,6 @@ if (empty($_SESSION['username']) AND
                                     ";
                                  } ?>
                             </td>
-                            <td><?php echo "<a href='hapus.php?id=$kolom[lowongan_id]' onclick=\"return confirm('Apakah anda yakin akan menghapus :)\" class='btn btn-danger'><i class='fa fa-times'></i></a> 
-"; ?></td>
                         </tr>
                         <?php 
                         $no=$no+1;
@@ -112,7 +109,10 @@ if (empty($_SESSION['username']) AND
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-<?php include '../footer.php'; ?>
+ <footer class="main-footer">
+    <strong>Copyright &copy; 2014-2019 PT.FARIKA RIAU PERKASA</strong>
+    </div>
+  </footer>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

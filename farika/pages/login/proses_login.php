@@ -17,7 +17,7 @@
     if ($_SESSION['akses'] == "ADMIN") {
       header('location:../../kariawan/admin/index.php');
     mysqli_close($koneksi);
-    }elseif ($_SESSION['HRD'] == "HRD") {
+    }elseif ($_SESSION['akses'] == "HRD") {
       header('location:../../kariawan/hrd/index.php');
     mysqli_close($koneksi);
     }

@@ -3,7 +3,7 @@ if (!isset($_SESSION)) {session_start();}
 if (empty($_SESSION['username']) AND
     empty($_SESSION['password']))
     { header('location:../../pages/login/login.php');}
-    else {if ($_SESSION['akses'] == "ADMIN") {
+    else {
      
 ?>
 <!DOCTYPE html>
@@ -54,84 +54,80 @@ if (empty($_SESSION['username']) AND
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
-    <!-- /.content-header -->
+    <?php 
+        $queri ="SELECT * FROM Kariawan WHERE username='$_SESSION[username]'";
+        $hasil =mysqli_query($koneksi,$queri);
+        $kolom=mysqli_fetch_assoc($hasil);
+            ?>
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
         <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>150</h3>
+          <div class="col-md-6">
 
-                <p>New Orders</p>
+            <!-- Profile Image -->
+            <div class="card">
+              <div class="card-header p-2">
+                <h3 class="profile-username text-center">Profile</h3>
               </div>
-              <div class="icon">
-                <i class="ion ion-bag"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+              <div class="card-body">
+                <div class="text-center">
+                  <img class="profile-user-img img-fluid img-circle"
+                       src="<?php echo "../foto/$kolom[kariawan_foto]"; ?>"
+                       alt="User profile picture">
+                </div>
 
-                <p>Bounce Rate</p>
+                <h3 class="profile-username text-center"><?php echo "$kolom[kariawan_nama]"; ?></h3>
+                <div class="">
+                <ul class="list-group list-group-unbordered mb-3">
+                  <li class="list-group-item">
+                    <b>JABATAN <a class="float-right"><?php echo "$kolom[kariawan_jabatan]"; ?></a></b> 
+                  </li>
+                  <li class="list-group-item">
+                    <b>TEMPAT LAHIR <a class="float-right"><?php echo "$kolom[kariawan_tmp_lhr]"; ?></a></b> 
+                  </li>
+                  <li class="list-group-item">
+                    <b>TANGGAL LAHIR <a class="float-right"><?php echo "$kolom[kariawan_tgl_lhr]"; ?></a></b> 
+                  </li>
+                  <li class="list-group-item">
+                    <b>JENIS KELAMIN <a class="float-right"><?php echo "$kolom[kariawan_jns_kel]"; ?></a></b> 
+                  </li>
+                  <li class="list-group-item">
+                    <b>AGAMA <a class="float-right"><?php echo "$kolom[kariawan_agama]"; ?></a></b>
+                  </li>
+                  <li class="list-group-item">
+                    <b>NO HP <a class="float-right"><?php echo "$kolom[kariawan_hp]"; ?></a></b>
+                  </li>
+                  <li class="list-group-item">
+                    <b>ALAMAT <a class="float-right"><?php echo "$kolom[kariawan_alamat]"; ?></a></b> 
+                  </li>
+                  <li class="list-group-item">
+                    <b>USERNAME <a class="float-right"><?php echo "$kolom[username]"; ?></a></b>
+                  </li>
+                </ul>
+                </div>
+                <a href="edit_profile.php" class="btn btn-primary "><b>Edit Profile</b></a><br><br>
+                <a href="ubah_password.php" class="btn btn-primary "><b>Ubah Password</b></a>
               </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>44</h3>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
 
-                <p>User Registrations</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
+            <!-- About Me Box -->
+            
+            <!-- /.card -->
           </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>65</h3>
-
-                <p>Unique Visitors</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
+          <!-- /.col -->
         </div>
-        <!-- /.row (main row) -->
+        <!-- /.row -->
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.0.0
+    <strong>Copyright &copy; 2014-2019 PT.FARIKA RIAU PERKASA</strong>
     </div>
   </footer>
 
@@ -179,10 +175,4 @@ if (empty($_SESSION['username']) AND
 <script src="../../dist/js/demo.js"></script>
 </body>
 </html>
-<?php }else{
-  echo '<script language="javascript">
-              alert ("Anda Tidak Punya Akses");
-              window.location="../hrd/index.php";
-              </script>';
-              exit();
-} } ;?>
+<?php } ;?>

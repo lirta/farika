@@ -3,7 +3,7 @@ if (!isset($_SESSION)) {session_start();}
 if (empty($_SESSION['username']) AND
     empty($_SESSION['password']))
     { header('location:../../pages/login/login.php');}
-    else {
+    else {if ($_SESSION['akses'] == "ADMIN") {
      
 ?>
 <!DOCTYPE html>
@@ -270,4 +270,10 @@ if (empty($_SESSION['username']) AND
 </script>
 </body>
 </html>
-<?php } ;?>
+<?php }else{
+  echo '<script language="javascript">
+              alert ("Anda Tidak Punya Akses");
+              window.location="../hrd/index.php";
+              </script>';
+              exit();
+} } ;?>

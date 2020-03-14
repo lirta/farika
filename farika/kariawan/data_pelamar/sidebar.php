@@ -27,6 +27,8 @@
               </p>
             </a>
           </li>
+          <?php if ($_SESSION['akses'] == "ADMIN") {
+            ?>
           <li class="nav-item">
             <a href="../admin/profile.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -39,6 +41,14 @@
               <p>Kariawan</p>
             </a>
           </li>
+        <?php }else{ ?>
+          <li class="nav-item">
+            <a href="../hrd/profile.php" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>Profil</p>
+            </a>
+          </li>
+        <?php } ?>
           <li class="nav-item">
             <a href="../data_pelamar/view.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>

@@ -103,7 +103,10 @@ if (empty($_SESSION['username']) AND
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-<?php include '../footer.php'; ?>
+ <footer class="main-footer">
+    <strong>Copyright &copy; 2014-2019 PT.FARIKA RIAU PERKASA</strong>
+    </div>
+  </footer>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

@@ -3,7 +3,7 @@ if (!isset($_SESSION)) {session_start();}
 if (empty($_SESSION['username']) AND
     empty($_SESSION['password']))
     { header('location:../../pages/login/login.php');}
-    else {if ($_SESSION['akses'] == "ADMIN") {
+    else {
      
 ?>
 <!DOCTYPE html>
@@ -63,20 +63,71 @@ if (empty($_SESSION['username']) AND
               <div class="card-body">
                 <!-- Date dd/mm/yyyy -->
                 
-                                                                
-                  <form role="form" action="password_proses.php" method="post" enctype="multipart/form-data">
+                  <?php 
+                  $queri ="SELECT * FROM Kariawan WHERE username='$_SESSION[username]'";
+                  $hasil =mysqli_query($koneksi,$queri);
+                  $kolom=mysqli_fetch_assoc($hasil);
+                      ?>                                                
+                  <form role="form" action="edit_kariawan_proses.php" method="post" enctype="multipart/form-data">
                 <div class="card-body col-md-8" h>
                   <div class="form-group" hidden="">
                     <label >username</label>
-                    <input type="text" class="form-control" name="username" value="<?php echo "$_SESSION[username]"; ?>">
+                    <input type="text" class="form-control" name="username" value="<?php echo "$kolom[username]"; ?>">
                   </div>
                   <div class="form-group">
-                    <label >Password Lama</label>
-                    <input type="password" class="form-control" name="passlama" >
+                    <label >Nama</label>
+                    <input type="text" class="form-control" name="nama" value="<?php echo "$kolom[kariawan_nama]"; ?>">
                   </div>
                   <div class="form-group">
-                    <label >Password Baru</label>
-                    <input type="password" class="form-control" name="passbaru" >
+                    <label >Tempat Lahir</label>
+                    <input type="text" class="form-control" name="tmp_l" value="<?php echo "$kolom[kariawan_tmp_lhr]"; ?>" >
+                  </div>
+                  <div class="form-group">
+                    <label >Tanggal Lahir</label>
+                    <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="tgl_l" value="<?php echo "$kolom[kariawan_tgl_lhr]"; ?>" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label >Jenis Kelamin</label>
+                    <select class="custom-select" name="kel">
+                      <option><?php echo "$kolom[kariawan_jns_kel]"; ?></option>
+                    <option>Laki-laki</option>
+                    <option>Perempuan</option>     
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label >Agama</label>
+                    <select class="custom-select" name="agama">
+                      <option><?php echo "$kolom[kariawan_agama]"; ?></option>
+                    <option>Islam</option>
+                    <option>Katolik</option>
+                    <option>Kristen Protestan</option>
+                    <option>Hindu</option>
+                    <option>Buddha</option>
+                    <option>Kong Hu Cu</option>     
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label >No Hp</label>
+                    <input type="text" class="form-control" name="hp" value="<?php echo "$kolom[kariawan_hp]"; ?>" >
+                  </div>
+                  <div class="form-group">
+                    <label >Alamat</label>
+                    <input type="text" class="form-control" name="alamat" value="<?php echo "$kolom[kariawan_alamat]"; ?>">
+                  </div>
+                <div class="form-group">
+                    <label for="exampleInputFile">Foto</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="exampleInputFile" name="foto">
+                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      </div>
+                    </div><br>
+                    <img src="<?php echo "../foto/$kolom[kariawan_foto]"; ?>" width="100xp">
                   </div>
                 <!-- /.card-body -->
 
@@ -219,10 +270,4 @@ if (empty($_SESSION['username']) AND
 </script>
 </body>
 </html>
-<?php }else{
-  echo '<script language="javascript">
-              alert ("Anda Tidak Punya Akses");
-              window.location="../hrd/index.php";
-              </script>';
-              exit();
-} } ;?>
+<?php } ;?>

@@ -4,6 +4,7 @@ if (empty($_SESSION['username']) AND
     empty($_SESSION['password']))
     { header('location:../../pages/login/login.php');}
     else {
+      if ($_SESSION['akses'] == "HRD") {
 ?>
 <!DOCTYPE html>
 <html>
@@ -32,7 +33,11 @@ if (empty($_SESSION['username']) AND
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
- 
+              <?php 
+                $queril ="SELECT * FROM lowongan where lowongan_id='$_GET[id]'";
+                $hasill =mysqli_query($koneksi,$queril);
+                $koloml=mysqli_fetch_assoc($hasill);
+              ?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -41,7 +46,7 @@ if (empty($_SESSION['username']) AND
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>DataTables</h1>
+            <h1>Data Pelamar Posisi <?php echo "$koloml[lowongan_posisi]"; ?></h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -54,44 +59,32 @@ if (empty($_SESSION['username']) AND
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">Data</h3> <br>
-              <a href='add.php' class='btn btn-primary'>TAMBAH DATA</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Posisi</th>
-                  <th>Tanggal Terbit</th>
-                  <th>Tanggal Akhir</th>
-                  <th>Kualifikasi</th>
+                  <th>Nama</th>
+                  <th>Pendidikan</th>
+                  <th>Jurusan</th>
+                  <th>Status</th>
                   <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
 
                 <?php 
-                $queri ="SELECT * FROM lowongan";
+                $queri ="SELECT * FROM lamaran inner join(pelamar inner join pendidikan on pelamar.username=pendidikan.pelamar) on pelamar.username=lamaran.pelamar where lowongan='$_GET[id]'";
                 $hasil =mysqli_query($koneksi,$queri);
                 $no = 1;
                 while ($kolom=mysqli_fetch_assoc($hasil)) {
                     ?><tr>
-                            <td><?php echo "$kolom[lowongan_posisi]";  ?></td>
-                            <td><?php echo "$kolom[lowongan_tgl_terbit]"; ?></td>
-                            <td><?php echo "$kolom[lowongan_tgl_batas]"; ?></td>
-                            <td>
-                              <?php $quer = "SELECT * FROM detail_lowongan where lowongan_id='$kolom[lowongan_id]'";
-                                $hass =mysqli_query($koneksi,$quer);
-                                while ($kol=mysqli_fetch_assoc($hass)) {
-                                  echo "
-                                   
-                                    <li>$kol[kualifikasi]</li>
-                                    
-                                    ";
-                                 } ?>
-                            </td>
-                            <td><?php echo "<a href='hapus.php?id=$kolom[lowongan_id]' onclick=\"return confirm('Apakah anda yakin akan menghapus :)\" class='btn btn-danger'><i class='fa fa-times'></i></a> 
-"; ?></td>
+                            <td><?php echo "<a href='../data_pelamar/detail_pelamar.php?id=$kolom[username]' target='_blank'>$kolom[nama]</a>";  ?></td>
+                            <td><?php echo "$kolom[pendidikan]"; ?></td>
+                            <td><?php echo "$kolom[jurusan]"; ?></td>
+                            <td><?php echo "$kolom[status]"; ?></td>
+                            <td><?php echo "<a href='../data_pelamar/detail_pelamar.php?id=$kolom[username]' target='_blank'>$kolom[nama]</a>";  ?></td>
                         </tr>
                         <?php 
                         $no=$no+1;
@@ -112,7 +105,10 @@ if (empty($_SESSION['username']) AND
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-<?php include '../footer.php'; ?>
+ <footer class="main-footer">
+    <strong>Copyright &copy; 2014-2019 PT.FARIKA RIAU PERKASA</strong>
+    </div>
+  </footer>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -149,4 +145,10 @@ if (empty($_SESSION['username']) AND
 </script>
 </body>
 </html>
-<?php } ?>
+<?php }else{
+  echo '<script language="javascript">
+              alert ("Anda Tidak Punya Akses");
+              window.location="../admin/index.php";
+              </script>';
+              exit();
+} } ;?>

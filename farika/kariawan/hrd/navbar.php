@@ -17,6 +17,14 @@
         </div>
       </div>
     </form>
-
+ <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item has-treeview menu-open">
+        <a class="nav-link"  href="../../pages/login/logout.php" class="button">
+          <span >Logout</span>
+        </a>
+      </li>
+    </ul>
     <!-- Right navbar links -->
   </nav>
