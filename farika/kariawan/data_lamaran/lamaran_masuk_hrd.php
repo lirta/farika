@@ -57,45 +57,182 @@ if (empty($_SESSION['username']) AND
       <div class="row">
         <div class="col-12">
           <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Data</h3> <br>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>Nama</th>
-                  <th>Pendidikan</th>
-                  <th>Jurusan</th>
-                  <th>Status</th>
-                  <th>Aksi</th>
-                </tr>
-                </thead>
-                <tbody>
+              <div class="card-header p-2">
+                <ul class="nav nav-pills">
+                  <li class="nav-item"><a class="nav-link active" href="#masuk" data-toggle="tab">Lamaran Masuk</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#adm" data-toggle="tab">ADM</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#ujian" data-toggle="tab">Ujian </a></li>
+                  <li class="nav-item"><a class="nav-link" href="#interview" data-toggle="tab">Interview </a></li>
+                </ul>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content">
+                  <div class="active tab-pane" id="masuk">
+                    <div class="post">
+                      <!-- /.user-block -->
+                      <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                          <thead>
+                          <tr>
+                            <th>Nama</th>
+                            <th>Pendidikan</th>
+                            <th>Jurusan</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <?php 
+                          $queri ="SELECT * FROM lamaran inner join pelamar  on pelamar.username=lamaran.pelamar where lowongan='$_GET[id]' AND status='PERMOHONAN'";
+                          $hasil =mysqli_query($koneksi,$queri);
+                          $no = 1;
+                          while ($kolom=mysqli_fetch_assoc($hasil)) {?>
+                            <tr>
+                                <?php 
+                                $querip ="SELECT * FROM  pendidikan where pelamar='$kolom[pelamar]' ";
+                                $hasilp=mysqli_query($koneksi,$querip);
+                                $kolomp=mysqli_fetch_assoc($hasilp); ?>
+                                <td><?php echo "<a href='../data_pelamar/detail_pelamar.php?id=$kolom[username]' target='_blank'>$kolom[nama]</a>";  ?></td>
+                                <td><?php echo "$kolomp[pendidikan]"; ?></td>
+                                <td><?php echo "$kolomp[jurusan]"; ?></td>
+                                <td><?php echo "$kolom[status]"; ?></td>
+                                <td><?php echo "<a href='terima.php?id=$kolom[id]'  class='btn btn-danger'>Terima</a>"; ?></td>
+                                  </tr>
+                                  <?php 
+                                  $no=$no+1;
+                           }?>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.tab-pane -->
+                  <div class="tab-pane" id="adm">
+                   <div class="post">
+                      <!-- /.user-block -->
+                      <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                          <thead>
+                          <tr>
+                            <th>Nama</th>
+                            <th>Pendidikan</th>
+                            <th>Jurusan</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <?php 
+                          $queri ="SELECT * FROM lamaran inner join pelamar  on pelamar.username=lamaran.pelamar where lowongan='$_GET[id]' AND status='ADM'";
+                          $hasil =mysqli_query($koneksi,$queri);
+                          $no = 1;
+                          while ($kolom=mysqli_fetch_assoc($hasil)) {?>
+                            <tr>
+                                <?php 
+                                $querip ="SELECT * FROM  pendidikan where pelamar='$kolom[pelamar]' ";
+                                $hasilp=mysqli_query($koneksi,$querip);
+                                $kolomp=mysqli_fetch_assoc($hasilp); ?>
+                                <td><?php echo "<a href='../data_pelamar/detail_pelamar.php?id=$kolom[username]' target='_blank'>$kolom[nama]</a>";  ?></td>
+                                <td><?php echo "$kolomp[pendidikan]"; ?></td>
+                                <td><?php echo "$kolomp[jurusan]"; ?></td>
+                                <td><?php echo "$kolom[status]"; ?></td>
+                                <td><?php echo "<a href='terima.php?id=$kolom[id]'  class='btn btn-danger'>Terima</a>"; ?></td>
+                                  </tr>
+                                  <?php 
+                                  $no=$no+1;
+                           }?>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div> 
+                  </div>
+                  <!-- /.tab-pane -->
 
-                <?php 
-                $queri ="SELECT * FROM lamaran inner join(pelamar inner join pendidikan on pelamar.username=pendidikan.pelamar) on pelamar.username=lamaran.pelamar where lowongan='$_GET[id]'";
-                $hasil =mysqli_query($koneksi,$queri);
-                $no = 1;
-                while ($kolom=mysqli_fetch_assoc($hasil)) {
-                    ?><tr>
-                            <td><?php echo "<a href='../data_pelamar/detail_pelamar.php?id=$kolom[username]' target='_blank'>$kolom[nama]</a>";  ?></td>
-                            <td><?php echo "$kolom[pendidikan]"; ?></td>
-                            <td><?php echo "$kolom[jurusan]"; ?></td>
-                            <td><?php echo "$kolom[status]"; ?></td>
-                            <td><?php echo "<a href='../data_pelamar/detail_pelamar.php?id=$kolom[username]' target='_blank'>$kolom[nama]</a>";  ?></td>
-                        </tr>
-                        <?php 
-                        $no=$no+1;
-                 } 
-                 ?>
-                
-                </tbody>
-              </table>
+                  <div class="tab-pane" id="ujian">
+                    <div class="post">
+                      
+                      <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                          <thead>
+                          <tr>
+                            <th>Nama</th>
+                            <th>Pendidikan</th>
+                            <th>Jurusan</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <?php 
+                          $queri ="SELECT * FROM lamaran inner join pelamar  on pelamar.username=lamaran.pelamar where lowongan='$_GET[id]' AND status='UJIAN'";
+                          $hasil =mysqli_query($koneksi,$queri);
+                          $no = 1;
+                          while ($kolom=mysqli_fetch_assoc($hasil)) {?>
+                            <tr>
+                                <?php 
+                                $querip ="SELECT * FROM  pendidikan where pelamar='$kolom[pelamar]' ";
+                                $hasilp=mysqli_query($koneksi,$querip);
+                                $kolomp=mysqli_fetch_assoc($hasilp); ?>
+                                <td><?php echo "<a href='../data_pelamar/detail_pelamar.php?id=$kolom[username]' target='_blank'>$kolom[nama]</a>";  ?></td>
+                                <td><?php echo "$kolomp[pendidikan]"; ?></td>
+                                <td><?php echo "$kolomp[jurusan]"; ?></td>
+                                <td><?php echo "$kolom[status]"; ?></td>
+                                <td><?php echo "<a href='terima.php?id=$kolom[id]'  class='btn btn-danger'>Terima</a>"; ?></td>
+                                  </tr>
+                                  <?php 
+                                  $no=$no+1;
+                           }?>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div> 
+                  </div>
+                  <!-- /.tab-pane -->
+
+                  <div class="tab-pane" id="interview">
+                    <div class="post">
+                      
+                      <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                          <thead>
+                          <tr>
+                            <th>Nama</th>
+                            <th>Pendidikan</th>
+                            <th>Jurusan</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <?php 
+                          $queri ="SELECT * FROM lamaran inner join pelamar  on pelamar.username=lamaran.pelamar where lowongan='$_GET[id]' AND status='UJIAN'";
+                          $hasil =mysqli_query($koneksi,$queri);
+                          $no = 1;
+                          while ($kolom=mysqli_fetch_assoc($hasil)) {?>
+                            <tr>
+                                <?php 
+                                $querip ="SELECT * FROM  pendidikan where pelamar='$kolom[pelamar]' ";
+                                $hasilp=mysqli_query($koneksi,$querip);
+                                $kolomp=mysqli_fetch_assoc($hasilp); ?>
+                                <td><?php echo "<a href='../data_pelamar/detail_pelamar.php?id=$kolom[username]' target='_blank'>$kolom[nama]</a>";  ?></td>
+                                <td><?php echo "$kolomp[pendidikan]"; ?></td>
+                                <td><?php echo "$kolomp[jurusan]"; ?></td>
+                                <td><?php echo "$kolom[status]"; ?></td>
+                                <td><?php echo "<a href='terima.php?id=$kolom[id]'  class='btn btn-danger'>Terima</a>"; ?></td>
+                                  </tr>
+                                  <?php 
+                                  $no=$no+1;
+                           }?>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div> 
+                  </div>
+
+                </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
             </div>
-            <!-- /.card-body -->
-          </div>
           <!-- /.card -->
         </div>
         <!-- /.col -->

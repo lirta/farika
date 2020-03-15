@@ -52,7 +52,19 @@
               <li class="nav-item">
                 <a href="../data_lamaran/view.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Data Lamaran</p>
+                  <p>Data Lamaran Permohonan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../data_lamaran/view.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data Lamaran ADM</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../data_lamaran/view.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data Lamaran Ujian</p>
                 </a>
               </li>
             </ul>
