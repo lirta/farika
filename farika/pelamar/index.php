@@ -71,7 +71,7 @@ if (empty($_SESSION['username']) AND
               <div class="card-body box-profile">
                 <div class="text-center">
                   <img class="profile-user-img img-fluid img-circle"
-                       src="<?php echo "berkas_foto/$_SESSION[foto]"; ?>"
+                       src="<?php echo "berkas_foto/$kolom[foto]"; ?>"
                        alt="User profile picture">
                 </div>
 

@@ -61,10 +61,17 @@ $lamaran=$_POST["lamaran"];
           }else{
             $keputusan="GAGAL";
           }
+          if ($keputusan == 'LULUS') {
+            $tgl= date("y-m-d");
+            $tgl2 = date("y-m-d", strtotime("+20 days", strtotime($tgl)));
+            $tglb=date("d/m/Y", strtotime($tgl2));
 
+            $querlamaran="UPDATE lamaran SET status = '$keputusan', tgl_interview = '$tglb' WHERE id = '$lamaran'";
+              mysqli_query($koneksi,$querlamaran);
+          }else{
           $querlamaran="UPDATE lamaran SET status = '$keputusan' WHERE id = '$lamaran'";
               mysqli_query($koneksi,$querlamaran);
-            
+            }
 $querujian="INSERT INTO ujian (
                 ujian_id,
                 id_lowongan,

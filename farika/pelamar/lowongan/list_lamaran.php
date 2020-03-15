@@ -62,8 +62,9 @@ if (empty($_SESSION['username']) AND
                 <thead>
                 <tr>
                   <th>Posisi</th>
-                  <th>Tanggal pemgajuan</th>
+                  <th>Tanggal pengajuan</th>
                   <th>Tanggal ujian</th>
+                  <th>Tanggal Interview</th>
                   <th>Status</th>
                   <th>Keterangan</th>
                 </tr>
@@ -80,12 +81,15 @@ if (empty($_SESSION['username']) AND
                       <td><?php echo "$kolom[lowongan_posisi]";  ?></td>
                       <td><?php echo "$kolom[tgl_lamaran]"; ?></td>
                       <td><?php echo "$kolom[tgl_ujian]"; ?></td>
+                      <td><?php echo "$kolom[tgl_interview]"; ?></td>
                       <td><?php echo "$kolom[status]"; ?></td>
                       <?php 
                         if ($kolom['status'] == "ADM") 
                         {
                             $date= date("d/m/Y");
-                            if ($kolom['tgl_ujian'] >= $date)  {
+                            $tgls=strtotime($date);
+                            $tglu=strtotime($kolom['tgl_ujian']);
+                            if ( $tglu >= $tgls)  {
                               echo "<td><a href='cek_ujian.php?id=$kolom[id]' class='btn btn-danger'>Ujian</a></td>";
                             }else{
                               echo "<td>Mohon Ma'af Ujian Anda Terlewatkan</td>";
@@ -96,7 +100,7 @@ if (empty($_SESSION['username']) AND
                         }elseif ($kolom['status'] == "PERMOHONAN"){
                           echo "<td>LAMARAN ANDA SEDANG DIPROSES</td>";
                         }elseif ($kolom['status'] == "LULUS") {
-                          echo "<td>SELAMAT ANDA TELAH LULUS UJIAN, SILAHKAN MENUNGGU KONFIRMASI BERIKUTNYA</td>";
+                          echo "<td>SELAMAT ANDA TELAH LULUS UJIAN, SILAHKAN MELAKUKAN TAHAPAN BERIKUTNYA</td>";
                         }elseif ($kolom['status'] == "GAGAL") {
                           echo "<td>MAAF ANDA GAGAL UJIAN</td>";
                         } ?>

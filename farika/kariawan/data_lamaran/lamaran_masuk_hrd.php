@@ -61,8 +61,8 @@ if (empty($_SESSION['username']) AND
                 <ul class="nav nav-pills">
                   <li class="nav-item"><a class="nav-link active" href="#masuk" data-toggle="tab">Lamaran Masuk</a></li>
                   <li class="nav-item"><a class="nav-link" href="#adm" data-toggle="tab">ADM</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#ujian" data-toggle="tab">Ujian </a></li>
                   <li class="nav-item"><a class="nav-link" href="#interview" data-toggle="tab">Interview </a></li>
+                  <li class="nav-item"><a class="nav-link" href="#terima" data-toggle="tab">DITERIMA </a></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
@@ -96,7 +96,9 @@ if (empty($_SESSION['username']) AND
                                 <td><?php echo "$kolomp[pendidikan]"; ?></td>
                                 <td><?php echo "$kolomp[jurusan]"; ?></td>
                                 <td><?php echo "$kolom[status]"; ?></td>
-                                <td><?php echo "<a href='terima.php?id=$kolom[id]'  class='btn btn-danger'>Terima</a>"; ?></td>
+                                <td><?php echo "<a href='terima.php?id=$kolom[id]'  class='btn btn-danger'>Terima</a>"; ?>
+                                  <?php echo "<a href='tolak.php?id=$kolom[id]'  class='btn btn-danger'>Tolak</a>"; ?>
+                                </td>
                                   </tr>
                                   <?php 
                                   $no=$no+1;
@@ -136,7 +138,7 @@ if (empty($_SESSION['username']) AND
                                 <td><?php echo "$kolomp[pendidikan]"; ?></td>
                                 <td><?php echo "$kolomp[jurusan]"; ?></td>
                                 <td><?php echo "$kolom[status]"; ?></td>
-                                <td><?php echo "<a href='terima.php?id=$kolom[id]'  class='btn btn-danger'>Terima</a>"; ?></td>
+                                <td><?php echo "<a href='tolak.php?id=$kolom[id]'  class='btn btn-danger'>Tolak</a>"; ?></td>
                                   </tr>
                                   <?php 
                                   $no=$no+1;
@@ -147,51 +149,10 @@ if (empty($_SESSION['username']) AND
                     </div> 
                   </div>
                   <!-- /.tab-pane -->
-
-                  <div class="tab-pane" id="ujian">
-                    <div class="post">
-                      
-                      <div class="card-body">
-                        <table id="example1" class="table table-bordered table-striped">
-                          <thead>
-                          <tr>
-                            <th>Nama</th>
-                            <th>Pendidikan</th>
-                            <th>Jurusan</th>
-                            <th>Status</th>
-                            <th>Aksi</th>
-                          </tr>
-                          </thead>
-                          <tbody>
-                          <?php 
-                          $queri ="SELECT * FROM lamaran inner join pelamar  on pelamar.username=lamaran.pelamar where lowongan='$_GET[id]' AND status='UJIAN'";
-                          $hasil =mysqli_query($koneksi,$queri);
-                          $no = 1;
-                          while ($kolom=mysqli_fetch_assoc($hasil)) {?>
-                            <tr>
-                                <?php 
-                                $querip ="SELECT * FROM  pendidikan where pelamar='$kolom[pelamar]' ";
-                                $hasilp=mysqli_query($koneksi,$querip);
-                                $kolomp=mysqli_fetch_assoc($hasilp); ?>
-                                <td><?php echo "<a href='../data_pelamar/detail_pelamar.php?id=$kolom[username]' target='_blank'>$kolom[nama]</a>";  ?></td>
-                                <td><?php echo "$kolomp[pendidikan]"; ?></td>
-                                <td><?php echo "$kolomp[jurusan]"; ?></td>
-                                <td><?php echo "$kolom[status]"; ?></td>
-                                <td><?php echo "<a href='terima.php?id=$kolom[id]'  class='btn btn-danger'>Terima</a>"; ?></td>
-                                  </tr>
-                                  <?php 
-                                  $no=$no+1;
-                           }?>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div> 
-                  </div>
                   <!-- /.tab-pane -->
 
                   <div class="tab-pane" id="interview">
                     <div class="post">
-                      
                       <div class="card-body">
                         <table id="example1" class="table table-bordered table-striped">
                           <thead>
@@ -205,7 +166,7 @@ if (empty($_SESSION['username']) AND
                           </thead>
                           <tbody>
                           <?php 
-                          $queri ="SELECT * FROM lamaran inner join pelamar  on pelamar.username=lamaran.pelamar where lowongan='$_GET[id]' AND status='UJIAN'";
+                          $queri ="SELECT * FROM lamaran inner join pelamar  on pelamar.username=lamaran.pelamar where lowongan='$_GET[id]' AND status='LULUS'";
                           $hasil =mysqli_query($koneksi,$queri);
                           $no = 1;
                           while ($kolom=mysqli_fetch_assoc($hasil)) {?>
@@ -218,7 +179,49 @@ if (empty($_SESSION['username']) AND
                                 <td><?php echo "$kolomp[pendidikan]"; ?></td>
                                 <td><?php echo "$kolomp[jurusan]"; ?></td>
                                 <td><?php echo "$kolom[status]"; ?></td>
-                                <td><?php echo "<a href='terima.php?id=$kolom[id]'  class='btn btn-danger'>Terima</a>"; ?></td>
+                                <td><?php echo "<a href='terimain.php?id=$kolom[id]'  class='btn btn-danger'>Terima</a>"; ?>
+                                  <?php echo "<a href='tolak.php?id=$kolom[id]'  class='btn btn-danger'>Tolak</a>"; ?>
+                                </td>
+                                  </tr>
+                                  <?php 
+                                  $no=$no+1;
+                           }?>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div> 
+                  </div>
+
+
+                  <div class="tab-pane" id="terima">
+                    <div class="post">
+                      <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                          <thead>
+                          <tr>
+                            <th>Nama</th>
+                            <th>Pendidikan</th>
+                            <th>Jurusan</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <?php 
+                          $queri ="SELECT * FROM lamaran inner join pelamar  on pelamar.username=lamaran.pelamar where lowongan='$_GET[id]' AND status='DITERIMA'";
+                          $hasil =mysqli_query($koneksi,$queri);
+                          $no = 1;
+                          while ($kolom=mysqli_fetch_assoc($hasil)) {?>
+                            <tr>
+                                <?php 
+                                $querip ="SELECT * FROM  pendidikan where pelamar='$kolom[pelamar]' ";
+                                $hasilp=mysqli_query($koneksi,$querip);
+                                $kolomp=mysqli_fetch_assoc($hasilp); ?>
+                                <td><?php echo "<a href='../data_pelamar/detail_pelamar.php?id=$kolom[username]' target='_blank'>$kolom[nama]</a>";  ?></td>
+                                <td><?php echo "$kolomp[pendidikan]"; ?></td>
+                                <td><?php echo "$kolomp[jurusan]"; ?></td>
+                                <td><?php echo "$kolom[status]"; ?></td>
+                                <td></td>
                                   </tr>
                                   <?php 
                                   $no=$no+1;

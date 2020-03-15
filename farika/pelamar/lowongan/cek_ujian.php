@@ -9,8 +9,10 @@ if (empty($_SESSION['username']) AND
       $queri ="SELECT * FROM lamaran WHERE id='$_GET[id]'";
         $hasil =mysqli_query($koneksi,$queri);
         $lamaran=mysqli_fetch_assoc($hasil);
-
-        if ($date == $lamaran['tgl_ujian']  ) {
+        $date= date("d/m/Y");
+        $tgls=strtotime($date);
+        $tglu=strtotime($lamaran['tgl_ujian']);
+        if ($tglu == $tgls  ) {
           ?>
              <!DOCTYPE html>
 <html>
@@ -206,7 +208,7 @@ if (empty($_SESSION['username']) AND
 </html>
       <?php  }else{
           echo '<script language="javascript">
-                          alert ("MOHON MAAF ANDA UJIAN PADA TANGGA $lamaran[tgl_ujian]");
+                          alert ("MOHON MAAF SILAHKAN PERIKSA TANGGAL UJIAN ANDA");
                           window.location="list_lamaran.php";
                           </script>';
                           exit();

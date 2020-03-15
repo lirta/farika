@@ -81,8 +81,11 @@ if (empty($_SESSION['username']) AND
                             <td><?php echo "$kolom[jns_kel]";  ?></td>
                             <td><?php echo "$kolom[pendidikan]";  ?></td>
                             <td><?php echo "$kolom[jurusan]";  ?></td>
-                            <td><?php echo "<a href='hapus_kariawan.php?id=$kolom[username]' onclick=\"return confirm('Apakah anda yakin akan menghapus :)\" class='btn btn-danger'><i class='fa fa-times'></i></a> 
-"; ?></td>
+                            <td><?php
+                            if ($_SESSION['akses'] == 'HRD') {
+                               
+                             }else{ echo "<a href='hapus_kariawan.php?id=$kolom[username]' onclick=\"return confirm('Apakah anda yakin akan menghapus :)\" class='btn btn-danger'><i class='fa fa-times'></i></a> 
+"; }?></td>
                         </tr>
                         <?php 
                         $no=$no+1;

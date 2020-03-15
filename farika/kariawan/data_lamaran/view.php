@@ -75,7 +75,9 @@ if (empty($_SESSION['username']) AND
                 while ($kolom=mysqli_fetch_assoc($hasil)) {
                     ?><tr>
 
-                            <td><?php if ($_SESSION['akses'] == "ADMIN") { echo "<a href='lamaran_masuk.php?id=$kolom[lowongan_id]' target='_blank'>$kolom[lowongan_posisi]</a>"; }else{echo "<a href='lamaran_masuk_hrd.php?id=$kolom[lowongan_id]' target='_blank'>$kolom[lowongan_posisi]</a>";} ?></td>
+                            <td><?php if ($_SESSION['akses'] == "ADMIN") 
+                            { echo "<a href='lamaran_masuk.php?id=$kolom[lowongan_id]' target='_blank'>$kolom[lowongan_posisi]</a>"; 
+                          }else{echo "<a href='lamaran_masuk_hrd.php?id=$kolom[lowongan_id]' target='_blank'>$kolom[lowongan_posisi]</a>";} ?></td>
                             <td><?php echo "$kolom[lowongan_tgl_terbit]"; ?></td>
                             <td><?php echo "$kolom[lowongan_tgl_batas]"; ?></td>
                             <td>

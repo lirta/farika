@@ -10,12 +10,13 @@ include "../../coneksi/config.php";
 		 	$tglb=date("d/m/Y", strtotime($tgl2));
 		 	
 
-		 	$querii="UPDATE lamaran SET status		='ADM',
-		 								tgl_ujian	='$tglb'
+		 	$querii="UPDATE lamaran SET status		='TOLAK'
 										where
 										id 			='$_GET[id]'";
 				mysqli_query($koneksi,$querii);
 				mysqli_close($koneksi);
 
 				header("location:lamaran_masuk_hrd.php?id=$kolom[lowongan]");
+
+
 ?>

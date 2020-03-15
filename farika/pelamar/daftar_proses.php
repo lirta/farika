@@ -17,13 +17,15 @@ $queri ="SELECT * FROM pelamar WHERE username='$_POST[user]'";
 											no_hp,
 											email,
 											username,
-											password) 
+											password,
+											foto) 
 											values 
 											('$_POST[nama]',
 											'$_POST[hp]',
 											'$_POST[email]',
 											'$_POST[user]',
-											'$pas')";
+											'$pas',
+											'default.jpg')";
 				mysqli_query($koneksi,$querii);
 				echo '<script language="javascript">
 			              alert ("Registrasi Berhasil Di Lakukan!");

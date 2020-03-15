@@ -2,7 +2,7 @@
 include "../../coneksi/config.php";
 
 
-			
+		 	
 			
 			$acak = rand(00000000, 99999999);
 			$namafoto = $_FILES['foto']['name'];
