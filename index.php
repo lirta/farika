@@ -255,7 +255,7 @@
               <h2 class="ftco-heading-2">KANTOR</h2>
               <ul class="list-unstyled">
                 <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Alamat       : PT. FARIKA RIAU PERKASA</a></li>
-                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Email Kantor : farikariauperkasa@ymail.com, customer@farikariau.com</a></li>
+                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Email Kantor : farikariauperkasa@gmail.com, customer@farikariau.com</a></li>
                 <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Telpon Kantor: 08127589884, 081276505571</a></li>
               </ul>
             </div>

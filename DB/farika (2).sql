@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 12, 2020 at 08:30 AM
+-- Generation Time: Mar 15, 2020 at 04:44 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -47,23 +47,6 @@ CREATE TABLE `detail_lowongan` (
   `kualifikasi` varchar(125) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `detail_lowongan`
---
-
-INSERT INTO `detail_lowongan` (`id`, `lowongan_id`, `kualifikasi`) VALUES
-(1, 'sales6329618', 'belum menikah'),
-(23, 'adim86084154', 'pengalaman minimal 1 thn'),
-(24, 'adim86084154', 'penempatan pekanbaru'),
-(25, 'adim86084154', 'a'),
-(26, 'IT38266927', 'asdasd'),
-(27, 'IT38266927', 'asd'),
-(28, 'IT38266927', 'aad'),
-(29, 'kasir79036129', 'qqqqqqqqqqqqqqqq'),
-(30, 'kasir79036129', 'asfasfasd'),
-(31, 'kasir79036129', 'asfdafafaf'),
-(32, 'kasir79036129', 'asdad');
-
 -- --------------------------------------------------------
 
 --
@@ -72,8 +55,10 @@ INSERT INTO `detail_lowongan` (`id`, `lowongan_id`, `kualifikasi`) VALUES
 
 CREATE TABLE `detail_ujian` (
   `id` int(11) NOT NULL,
-  `ujian_id` int(11) NOT NULL,
-  `id_soal` int(11) NOT NULL
+  `ujian_id` varchar(125) NOT NULL,
+  `kategori` int(11) NOT NULL,
+  `id_soal` int(11) NOT NULL,
+  `jawaban` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -89,7 +74,9 @@ CREATE TABLE `kariawan` (
   `kariawan_jns_kel` varchar(20) NOT NULL,
   `kariawan_agama` varchar(20) NOT NULL,
   `kariawan_alamat` varchar(225) NOT NULL,
+  `kariawan_hp` varchar(30) NOT NULL,
   `kariawan_foto` varchar(225) NOT NULL,
+  `kariawan_jabatan` varchar(11) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -98,8 +85,9 @@ CREATE TABLE `kariawan` (
 -- Dumping data for table `kariawan`
 --
 
-INSERT INTO `kariawan` (`kariawan_nama`, `kariawan_tmp_lhr`, `kariawan_tgl_lhr`, `kariawan_jns_kel`, `kariawan_agama`, `kariawan_alamat`, `kariawan_foto`, `username`, `password`) VALUES
-('inda', '', '', '', '', '', '', 'inda', 'c4ca4238a0b923820dcc509a6f75849b');
+INSERT INTO `kariawan` (`kariawan_nama`, `kariawan_tmp_lhr`, `kariawan_tgl_lhr`, `kariawan_jns_kel`, `kariawan_agama`, `kariawan_alamat`, `kariawan_hp`, `kariawan_foto`, `kariawan_jabatan`, `username`, `password`) VALUES
+('gentho', 'pekanbaru 11', '12/12/1212', 'Laki-laki', 'Islam', 'Jl. Parmata', '09', '7162045453464851a (3).jpg', 'ADMIN', 'admin', 'c81e728d9d4c2f636f067f89cc14862c'),
+('inda lirta padisma', 'padang', '18/11/1990', 'Laki-laki', 'Islam', 'garuda sakti', '081277967050', '76630800default.jpg', 'HRD', 'hrd', 'c4ca4238a0b923820dcc509a6f75849b');
 
 -- --------------------------------------------------------
 
@@ -111,15 +99,6 @@ CREATE TABLE `kategori_soal` (
   `kategori_soal_id` int(11) NOT NULL,
   `nama` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `kategori_soal`
---
-
-INSERT INTO `kategori_soal` (`kategori_soal_id`, `nama`) VALUES
-(1, 'matemarika1'),
-(2, 'pisikotes'),
-(4, 'sosial');
 
 -- --------------------------------------------------------
 
@@ -133,16 +112,9 @@ CREATE TABLE `lamaran` (
   `pelamar` varchar(125) NOT NULL,
   `tgl_lamaran` varchar(50) NOT NULL,
   `status` varchar(50) NOT NULL,
-  `tgl_ujian` varchar(50) NOT NULL
+  `tgl_ujian` varchar(50) NOT NULL,
+  `tgl_interview` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `lamaran`
---
-
-INSERT INTO `lamaran` (`id`, `lowongan`, `pelamar`, `tgl_lamaran`, `status`, `tgl_ujian`) VALUES
-(6, 'sales6329618', 'lirta', '11/03/2020', 'ADM', '12/03/2020'),
-(7, 'kasir79036129', 'lirta', '11/03/2020', 'PERMOHONAN', '');
 
 -- --------------------------------------------------------
 
@@ -157,16 +129,6 @@ CREATE TABLE `lowongan` (
   `lowongan_tgl_batas` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `lowongan`
---
-
-INSERT INTO `lowongan` (`lowongan_id`, `lowongan_posisi`, `lowongan_tgl_terbit`, `lowongan_tgl_batas`) VALUES
-('adim86084154', 'adim', 'Sun.Mar.2020', '12/11/2020'),
-('IT38266927', 'IT', 'SunSun.MarMar.20202020', '12/05/2020'),
-('kasir79036129', 'kasir', '08.Mar.2020', '13/06/2020'),
-('sales6329618', 'sales', '10/03/2020', '12/04/2020');
-
 -- --------------------------------------------------------
 
 --
@@ -175,8 +137,13 @@ INSERT INTO `lowongan` (`lowongan_id`, `lowongan_posisi`, `lowongan_tgl_terbit`,
 
 CREATE TABLE `pelamar` (
   `nama` varchar(100) NOT NULL,
+  `tmp_lhr` varchar(125) NOT NULL,
+  `tgl_lhr` varchar(30) NOT NULL,
+  `jns_kel` varchar(30) NOT NULL,
+  `agama` varchar(30) NOT NULL,
   `no_hp` varchar(20) NOT NULL,
   `email` varchar(20) NOT NULL,
+  `alamat` varchar(225) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(225) NOT NULL,
   `foto` varchar(225) NOT NULL
@@ -186,9 +153,10 @@ CREATE TABLE `pelamar` (
 -- Dumping data for table `pelamar`
 --
 
-INSERT INTO `pelamar` (`nama`, `no_hp`, `email`, `username`, `password`, `foto`) VALUES
-('inda', '09', 'inda@jn', 'inda', 'b3d31242b5e5580ef784f213aff8bf4b', 'default.jpg'),
-('inda', '09', 'as@kjnm', 'lirta', 'c4ca4238a0b923820dcc509a6f75849b', 'default.jpg');
+INSERT INTO `pelamar` (`nama`, `tmp_lhr`, `tgl_lhr`, `jns_kel`, `agama`, `no_hp`, `email`, `alamat`, `username`, `password`, `foto`) VALUES
+('inda', '', '', '', '', '09', 'ijij@inda', '', 'a', 'c4ca4238a0b923820dcc509a6f75849b', 'default.jpg'),
+('Fiter', '', '', '', '', '0320853275025', 'amp@gmail.com', '', 'fiter', 'd4c1c976e2885dbcf4798b708717ac1e', 'default.jpg'),
+('fiter123', '', '', '', '', '8484884', 'apm@gmail.com', '', 'fiter123', '9942768163fc714dd3dba14fb754261d', 'default.jpg');
 
 -- --------------------------------------------------------
 
@@ -202,15 +170,16 @@ CREATE TABLE `pendidikan` (
   `pendidikan` varchar(110) NOT NULL,
   `jurusan` varchar(125) NOT NULL,
   `ijazah` varchar(225) NOT NULL,
-  `transkip_nilai` varchar(225) NOT NULL
+  `transkip_nilai` varchar(225) NOT NULL,
+  `cv` varchar(125) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pendidikan`
 --
 
-INSERT INTO `pendidikan` (`id`, `pelamar`, `pendidikan`, `jurusan`, `ijazah`, `transkip_nilai`) VALUES
-(4, 'lirta', 'D3', 'manajemen informatika', '93426193D-Action-Games-HD-Wallpaper.jpg', '53464851a (3).jpg');
+INSERT INTO `pendidikan` (`id`, `pelamar`, `pendidikan`, `jurusan`, `ijazah`, `transkip_nilai`, `cv`) VALUES
+(1, 'fiter123', 'S1', 'manajemen informatika', '220212483d-games-wallpapers-3d-picture-3d-wallpaper_oWEbyQ7.jpg', '220212483D-Action-Games-HD-Wallpaper.jpg', '22021248devil-may-cry-background.jpg');
 
 -- --------------------------------------------------------
 
@@ -234,7 +203,10 @@ CREATE TABLE `soal` (
 --
 
 INSERT INTO `soal` (`id`, `kategori_soal_id`, `soal`, `a`, `b`, `c`, `d`, `jawaban`) VALUES
-(2, 2, 'saya adalah', 'dia', 'kamu', 'merka', 'kamilah', 'd');
+(2, 1, '2+2', '1', '2', '3', '4', 'd'),
+(4, 1, '1+1', '1', '2', '3', '4', 'b'),
+(5, 1, '2+1', '1', '2', '3', '4', 'c'),
+(6, 1, '5+1', '2', '3', '1', '4', 'd');
 
 -- --------------------------------------------------------
 
@@ -243,11 +215,12 @@ INSERT INTO `soal` (`id`, `kategori_soal_id`, `soal`, `a`, `b`, `c`, `d`, `jawab
 --
 
 CREATE TABLE `ujian` (
-  `ujian_id` int(11) NOT NULL,
+  `ujian_id` varchar(125) NOT NULL,
   `id_lowongan` varchar(125) NOT NULL,
-  `pelamara_id` varchar(125) NOT NULL,
+  `pelamar_id` varchar(125) NOT NULL,
   `tgl_ujian` varchar(50) NOT NULL,
-  `hasil` int(11) NOT NULL
+  `benar` int(11) NOT NULL,
+  `salah` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -334,31 +307,31 @@ ALTER TABLE `berkas_pendukung`
 -- AUTO_INCREMENT for table `detail_lowongan`
 --
 ALTER TABLE `detail_lowongan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `detail_ujian`
+--
+ALTER TABLE `detail_ujian`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `lamaran`
 --
 ALTER TABLE `lamaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `pendidikan`
 --
 ALTER TABLE `pendidikan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `soal`
 --
 ALTER TABLE `soal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `ujian`
---
-ALTER TABLE `ujian`
-  MODIFY `ujian_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

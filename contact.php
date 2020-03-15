@@ -77,8 +77,8 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
-            <h1 class="mb-2 bread">CANTAK</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="index.php">BRANDA <i class="ion-ios-arrow-forward"></i></a></span> <span>CONTAK<i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-2 bread">CONTACT</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.php">BERANDA <i class="ion-ios-arrow-forward"></i></a></span> <span>CONTACT<i class="ion-ios-arrow-forward"></i></span></p>
           </div> 
         </div>
       </div>
@@ -103,7 +103,7 @@
           </div>
           <div class="col-md-3 d-flex">
           	<div class="bg-light d-flex align-self-stretch box p-4">
-	            <p><span>Email:</span> <a >farikariauperkasa@ymail.com, customer@farikariau.com</a></p>
+	            <p><span>Email:</span> <a >farikariauperkasa@gmail.com, customer@farikariau.com</a></p>
 	          </div>
           </div>
         </div>

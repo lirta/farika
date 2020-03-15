@@ -41,7 +41,7 @@ if (empty($_SESSION['username']) AND
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>DataTables</h1>
+            <h1>List Lamaran</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
