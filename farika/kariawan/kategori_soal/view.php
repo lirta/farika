@@ -98,12 +98,7 @@ if (empty($_SESSION['username']) AND
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-<footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.0.0
-    </div>
-    <strong>Copyright &copy; PT> FARIKA RIAU PERKASA</strong>
-  </footer>
+<?php include '../footer.php'; ?>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
