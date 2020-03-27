@@ -49,7 +49,7 @@ if (empty($_SESSION['username']) AND
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard</h1>
+            <h1 class="m-0 text-dark">Dashboard Admin</h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -91,7 +91,6 @@ if (empty($_SESSION['username']) AND
                         $no=$no+1;
                  } 
                  ?>
-          <!-- ./col -->
         </div>
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
