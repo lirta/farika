@@ -203,7 +203,6 @@ if (empty($_SESSION['username']) AND
                             <th>Pendidikan</th>
                             <th>Jurusan</th>
                             <th>Status</th>
-                            <th>Aksi</th>
                           </tr>
                           </thead>
                           <tbody>
@@ -221,7 +220,6 @@ if (empty($_SESSION['username']) AND
                                 <td><?php echo "$kolomp[pendidikan]"; ?></td>
                                 <td><?php echo "$kolomp[jurusan]"; ?></td>
                                 <td><?php echo "$kolom[status]"; ?></td>
-                                <td></td>
                                   </tr>
                                   <?php 
                                   $no=$no+1;

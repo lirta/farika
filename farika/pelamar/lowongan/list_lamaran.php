@@ -89,9 +89,10 @@ if (empty($_SESSION['username']) AND
                             $date= date("d/m/Y");
                             $tgls=strtotime($date);
                             $tglu=strtotime($kolom['tgl_ujian']);
-                            if ($tglu >= $tgls)  {
-                                echo "$tglu ";
-                              //echo "<td><a href='cek_ujian.php?id=$kolom[id]' class='btn btn-danger'>Ujian</a></td>";
+                            if ($tglu > $tgls)  {
+                                echo "<td><a href='cek_ujian.php?id=$kolom[id]' class='btn btn-danger'>Ujian</a></td>";
+                            }if ($date == $kolom['tgl_ujian']) {
+                              echo "<td><a href='cek_ujian.php?id=$kolom[id]' class='btn btn-danger'>Ujian</a></td>";
                             }else{
                               echo "<td>Mohon Ma'af Ujian Anda Terlewatkan</td>";
                             }
