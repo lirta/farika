@@ -148,7 +148,12 @@ if (empty($_SESSION['username']) AND
                       <div class="row mb-12">
                         <label>CV</label> <br>
                         <div class="col-sm-12">
+                          <?php 
+                            if (!empty($kolomp['cv'])) {
+                            
+                           ?>
                           <img class="img-fluid" src="<?php echo "berkas_foto/$kolomp[cv]"; ?>" alt="Photo">
+                        <?php }else{ echo "ANDA BELUM UPLOAD CV <br> SEGERA LENGKAPI BERKAS ANDA";} ?>
                         </div>
                       </div>
                     </div>
@@ -160,12 +165,20 @@ if (empty($_SESSION['username']) AND
                       <div class="row mb-12">
                         <div class="col-sm-12">
                           <label>Ijazah</label><br>
+                          <?php 
+                            if (!empty($kolomp['ijazah'])) {
+                            
+                           ?>
                           <img class="img-fluid" src="<?php echo "berkas_foto/$kolomp[ijazah]"; ?>" alt="Photo">
+                          <?php }else{ echo "ANDA BELUM UPLOAD IJAZAH <br> SEGERA LENGKAPI BERKAS ANDA";} ?>
                         </div>
 
                         <div class="col-sm-12">
                           <label>Transkip Nilai</label><br>
+                          <?php 
+                            if (!empty($kolomp['transkip_nilai'])) { ?>
                           <img class="img-fluid" src="<?php echo "berkas_foto/$kolomp[transkip_nilai]"; ?>" alt="Photo">
+                          <?php }else{ echo "ANDA BELUM UPLOAD TRANSKIP NILAI <br> SEGERA LENGKAPI BERKAS ANDA";} ?>
                         </div>
                       </div>
                     </div> 
@@ -207,7 +220,7 @@ if (empty($_SESSION['username']) AND
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <?php include '../footer.php'; ?>
+  <?php include 'footer.php'; ?>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

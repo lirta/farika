@@ -5,25 +5,19 @@ if (empty($_SESSION['username']) AND
     empty($_SESSION['password']))
     {header('location:../login.php');}
     else {
-      $date= date("d/m/Y");
-      $queri ="SELECT * FROM lamaran WHERE id='$_GET[id]'";
-        $hasil =mysqli_query($koneksi,$queri);
+      $tgl ="SELECT * FROM lamaran WHERE id='$_GET[id]'";
+        $hasil =mysqli_query($koneksi,$tgl);
         $lamaran=mysqli_fetch_assoc($hasil);
         $date= date("d/m/Y");
-        $tgls=strtotime($date);
-        $tglu=strtotime($lamaran['tgl_ujian']);
-        if ($tglu == $tgls  ) {
+        if ($date == $lamaran['tgl_ujian']  ) {
           ?>
-             <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <?php
  //untuk memulai session
     
      
     //set session dulu dengan nama $_SESSION["mulai"]
-   
-
-
     $sql = 0;
      
     /* Apabila data di database kosong, maka waktu awal di set 0 jam, 10 menit dan 0 detik */
@@ -65,9 +59,6 @@ if (empty($_SESSION['username']) AND
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-
-
-
   <!-- Kita membutuhkan jquery, disini saya menggunakan langsung dari jquery.com, jquery ini bisa didownload dan ditaruh dilocal -->
     <script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
   

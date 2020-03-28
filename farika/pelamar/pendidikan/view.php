@@ -77,6 +77,7 @@ if (empty($_SESSION['username']) AND
                 </thead>
                 <tbody>
                 <?php 
+                if (!empty($kolom)) {
                   echo "
                     <tr>
                       <td width='10px'>$kolom[pendidikan]</td>
@@ -84,7 +85,8 @@ if (empty($_SESSION['username']) AND
                       <td><img src='../berkas_foto/$kolom[ijazah]' width='200px'> </td>
                       <td><img src='../berkas_foto/$kolom[transkip_nilai]' width='200px'></td>
                       <td><img src='../berkas_foto/$kolom[cv]' width='200px'></td>
-                    </tr>";?>
+                    </tr>";
+                  }else{echo "<tr> <td >data belum ada silahkan tambah data</td> </tr>" ;} ?>
                 </tbody>
               </table>
             </div>

@@ -144,7 +144,7 @@ if (empty($_SESSION['username']) AND
                     <div class="post">
                       <!-- /.user-block -->
                       <div class="row mb-12">
-                        <label>CV</label> <br>
+                        <label>CV</label> <br><br>
                         <div class="col-sm-6">
                           <img class="img-fluid" src="<?php echo "../../pelamar/berkas_foto/$kolomp[cv]"; ?>" alt="Photo">
                         </div>

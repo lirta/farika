@@ -84,7 +84,7 @@ if (empty($_SESSION['username']) AND
                             <td><?php
                             if ($_SESSION['akses'] == 'HRD') {
                                
-                             }else{ echo "<a href='hapus_kariawan.php?id=$kolom[username]' onclick=\"return confirm('Apakah anda yakin akan menghapus :)\" class='btn btn-danger'><i class='fa fa-times'></i></a> 
+                             }else{ echo "<a href='hapus_pelamar.php?id=$kolom[username]' onclick=\"return confirm('Apakah anda yakin akan menghapus :)\" class='btn btn-danger'><i class='fa fa-times'></i></a> 
 "; }?></td>
                         </tr>
                         <?php 

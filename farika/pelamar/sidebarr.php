@@ -65,18 +65,6 @@
                   <p>List Lamaran</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="../lowongan/tolak.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Tolak</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../lowongan/hasil.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Hasil Tes</p>
-                </a>
-              </li>
             </ul>
           </li>
         </ul>
