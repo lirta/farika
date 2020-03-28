@@ -83,7 +83,7 @@ if (empty($_SESSION['username']) AND
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-             <?php echo " <a href='../data_lamaran/lamaran_masuk_hrd.php?id=$kolom[lowongan_id]' class='small-box-footer'>More info <i class='fas fa-arrow-circle-right'></i></a> "; ?>
+             <?php echo " <a href='../data_lamaran/lamaran_masuk.php?id=$kolom[lowongan_id]' class='small-box-footer'>More info <i class='fas fa-arrow-circle-right'></i></a> "; ?>
             </div>
           </div>
 
