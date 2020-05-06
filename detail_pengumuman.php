@@ -64,8 +64,8 @@
             <li class="nav-item "><a href="index.php" class="nav-link pl-0">Branda</a></li>
             <li class="nav-item "><a href="Profile.php" class="nav-link">Tentang Kami</a></li>
             <li class="nav-item "><a href="project.php" class="nav-link">Fortofolio</a></li>
-            <li class="nav-item active"><a href="lowongan.php" class="nav-link">Lowongan Pekerjaan</a></li>
-            <li class="nav-item"><a href="pengumuman.php" class="nav-link">Pengumuman</a></li>
+            <li class="nav-item "><a href="lowongan.php" class="nav-link">Lowongan Pekerjaan</a></li>
+            <li class="nav-item active"><a href="pengumuman.php" class="nav-link">Pengumuman</a></li>
             <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
             <li class="nav-item"><a href="farika/pages/login/login.php" class="nav-link">Login Kariawan</a></li>
             <li class="nav-item"><a href="farika/pelamar/login.php" class="nav-link">Login Pelamar</a></li>
@@ -92,45 +92,47 @@
         <div class="row justify-content-center mb-5 pb-2">
           <div class="col-md-8 text-center heading-section ftco-animate">
             <span class="subheading">Informasi</span>
-            <h2 class="mb-4">Lowongan Pekerjaan</h2>
+            <h2 class="mb-4">Pengumuman</h2>
           </div>
         </div>
         <div class="row">
-          
-            <?php 
-                $queri ="SELECT * FROM lowongan ";
-                $hasil =mysqli_query($koneksi,$queri);
-                $no = 1;
-                while ($low=mysqli_fetch_assoc($hasil)) { ?>
                       <div class="col-md-4 ftco-animate">
                         <div class="blog-entry">
                           <div class="text pt-4">
-                            <h3 class="heading"><a href="#">Lowongan Bagian :<?php echo " $low[lowongan_posisi]"; ?></a></h3>
-                            <h4 class="heading"><a href="#">Kualifikasi </a></h4>
-                            <ul>
-                             <?php 
-                            $querii ="SELECT * FROM detail_lowongan where lowongan_id='$low[lowongan_id]' ";
-                            $hasill =mysqli_query($koneksi,$querii);
-                            while ($loww=mysqli_fetch_assoc($hasill)) {
-                             echo " <li>$loww[kualifikasi]</li> ";
-                           }
-                              ?>
-                              </ul>
-                              <h4 class="heading">Lamaran Palinglama Tanggal <?php echo "$low[lowongan_tgl_batas]";  ?></h4>
-                              <div class="d-flex align-items-center mt-4">
-                              <p class="mb-0"><a href="farika/pelamar/lowongan/list.php" target="_blank" class="btn btn-primary">Lamar<span class="ion-ios-arrow-round-forward"></span></a></p>
-                            </div>
+                            <h2 class="heading">DI TERIMA </h2>
+                            <?php 
+                              $querit ="SELECT * FROM lamaran WHERE lowongan='$_GET[id]' ";
+                              $hasilt =mysqli_query($koneksi,$querit);
+                              while ($ter=mysqli_fetch_assoc($hasilt)) { 
+                             if ($ter['status'] == 'TOLAK') {
+                                 
+                               } else{
+                                echo "<ul>
+                                      <h3 class='heading' > $ter[pelamar]  </h3>
+                                      </ul>";
+                               }
+
+                             }
+                               ?>
+                               <h2 class="heading">DI TOLAK </h2>
+                            <?php 
+                              $hasila =mysqli_query($koneksi,"SELECT * FROM lamaran WHERE lowongan='$_GET[id]' ");
+                              while ($low=mysqli_fetch_assoc($hasila)) { 
+                             if ($low['status'] == 'TOLAK') {
+                                echo "<ul>
+                                      <h3 class='heading' > $low[pelamar]  </h3>
+                                      </ul>";
+                               }
+          
+
+                             } mysqli_close($koneksi);
+                             ?>
                             </div>
                           </div>
                         </div>
           
 
-                      <?php
-          
-                        $no=$no+1;
-
-                 } mysqli_close($koneksi);
-                 ?>
+                      
                
                  
         </div>

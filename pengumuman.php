@@ -64,8 +64,8 @@
             <li class="nav-item "><a href="index.php" class="nav-link pl-0">Branda</a></li>
             <li class="nav-item "><a href="Profile.php" class="nav-link">Tentang Kami</a></li>
             <li class="nav-item "><a href="project.php" class="nav-link">Fortofolio</a></li>
-            <li class="nav-item active"><a href="lowongan.php" class="nav-link">Lowongan Pekerjaan</a></li>
-            <li class="nav-item"><a href="pengumuman.php" class="nav-link">Pengumuman</a></li>
+            <li class="nav-item "><a href="lowongan.php" class="nav-link">Lowongan Pekerjaan</a></li>
+            <li class="nav-item active"><a href="pengumuman.php" class="nav-link">Pengumuman</a></li>
             <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
             <li class="nav-item"><a href="farika/pages/login/login.php" class="nav-link">Login Kariawan</a></li>
             <li class="nav-item"><a href="farika/pelamar/login.php" class="nav-link">Login Pelamar</a></li>
@@ -96,41 +96,28 @@
           </div>
         </div>
         <div class="row">
-          
-            <?php 
-                $queri ="SELECT * FROM lowongan ";
-                $hasil =mysqli_query($koneksi,$queri);
-                $no = 1;
-                while ($low=mysqli_fetch_assoc($hasil)) { ?>
                       <div class="col-md-4 ftco-animate">
                         <div class="blog-entry">
                           <div class="text pt-4">
-                            <h3 class="heading"><a href="#">Lowongan Bagian :<?php echo " $low[lowongan_posisi]"; ?></a></h3>
-                            <h4 class="heading"><a href="#">Kualifikasi </a></h4>
-                            <ul>
-                             <?php 
-                            $querii ="SELECT * FROM detail_lowongan where lowongan_id='$low[lowongan_id]' ";
-                            $hasill =mysqli_query($koneksi,$querii);
-                            while ($loww=mysqli_fetch_assoc($hasill)) {
-                             echo " <li>$loww[kualifikasi]</li> ";
-                           }
-                              ?>
-                              </ul>
-                              <h4 class="heading">Lamaran Palinglama Tanggal <?php echo "$low[lowongan_tgl_batas]";  ?></h4>
-                              <div class="d-flex align-items-center mt-4">
-                              <p class="mb-0"><a href="farika/pelamar/lowongan/list.php" target="_blank" class="btn btn-primary">Lamar<span class="ion-ios-arrow-round-forward"></span></a></p>
-                            </div>
+                             <h2 class="heading">Lowongan </h2>
+                            <?php 
+                              $queri ="SELECT * FROM lowongan ";
+                              $hasil =mysqli_query($koneksi,$queri);
+                              $no = 1;
+                              while ($low=mysqli_fetch_assoc($hasil)) { ?>
+                            <h3 class="heading"><?php echo "<a href='detail_pengumuman.php?id=$low[lowongan_id]'>Lowongan Bagian : $low[lowongan_posisi]</a>"; ?></h3>
+                            <?php
+          
+                                    $no=$no+1;
+
+                             } mysqli_close($koneksi);
+                             ?>
                             </div>
                           </div>
                         </div>
           
 
-                      <?php
-          
-                        $no=$no+1;
-
-                 } mysqli_close($koneksi);
-                 ?>
+                      
                
                  
         </div>

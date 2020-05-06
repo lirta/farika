@@ -54,7 +54,6 @@ if (empty($_SESSION['username']) AND
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">Data</h3> <br>
-              <a href='add.php' class='btn btn-primary'>TAMBAH DATA</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">

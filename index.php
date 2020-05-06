@@ -37,7 +37,7 @@
       <div class="container">
         <div class="row no-gutters d-flex align-items-center align-items-stretch">
           <div class="col-md-5 d-flex align-items-center py-4">
-            <a class="navbar-brand" href="index.html"><span class="flaticon-bee mr-1"></span>PT. FARIKA RIAU PERKASA</a>
+            <a class="navbar-brand" href="index.php"><span class="flaticon-bee mr-1"></span>PT. FARIKA RIAU PERKASA</a>
           </div>
           <div class="col-lg-7 d-block">
             <div class="row d-flex">
@@ -69,6 +69,7 @@
             <li class="nav-item"><a href="Profile.php" class="nav-link">Tentang Kami</a></li>
             <li class="nav-item"><a href="project.php" class="nav-link">Fortofolio</a></li>
             <li class="nav-item"><a href="lowongan.php" class="nav-link">Lowongan Pekerjaan</a></li>
+            <li class="nav-item"><a href="pengumuman.php" class="nav-link">Pengumuman</a></li>
             <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
             <li class="nav-item"><a href="farika/pages/login/login.php" class="nav-link">Login Kariawan</a></li>
             <li class="nav-item"><a href="farika/pelamar/login.php" class="nav-link">Login Pelamar</a></li>
