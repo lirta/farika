@@ -1,6 +1,6 @@
 <?php if ($_SESSION['akses'] == "ADMIN") {
-  ?>
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+?>
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -83,7 +83,7 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-                <li class="nav-item">
+              <li class="nav-item">
                 <a href="../kategori_soal/view.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kategori Soal</p>
@@ -97,6 +97,12 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="../laporan/view.php" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>Laporan</p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -104,9 +110,9 @@
     <!-- /.sidebar -->
   </aside>
 
-  <?php } else {
- ?>
- <aside class="main-sidebar sidebar-dark-primary elevation-4">
+<?php } else {
+?>
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -171,7 +177,7 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-                <li class="nav-item">
+              <li class="nav-item">
                 <a href="../kategori_soal/view.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kategori Soal</p>
@@ -185,6 +191,12 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="../laporan/view.php" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>Laporan</p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -192,4 +204,4 @@
     <!-- /.sidebar -->
   </aside>
 
-  <?php } ?>
+<?php } ?>
