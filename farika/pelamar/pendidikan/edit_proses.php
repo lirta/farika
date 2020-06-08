@@ -31,7 +31,7 @@ $acak = rand(00000000, 99999999);
 								 	jurusan			='$_POST[jur]',
 								 	ijazah			='$namaijazah',
 								 	cv 				='$namacv',
-								 	transkip_nilai	='$namatn',
+								 	transkip_nilai	='$namatn'
 							 		where id ='$_POST[id]'";
 	}elseif (!empty($folderawaltn) AND !empty($folderawalijazah) AND empty($folderawalcv)) {
 
@@ -41,7 +41,7 @@ $acak = rand(00000000, 99999999);
 								 	pendidikan		='$_POST[pen]',
 								 	jurusan			='$_POST[jur]',
 								 	ijazah			='$namaijazah',
-								 	transkip_nilai	='$namatn',
+								 	transkip_nilai	='$namatn'
 							 		where id ='$_POST[id]'";
 
 
@@ -78,5 +78,3 @@ $acak = rand(00000000, 99999999);
 mysqli_query($koneksi,$queri);
 mysqli_close($koneksi);
 header('location:view.php');
-
-?>
