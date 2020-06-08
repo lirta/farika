@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2020 at 06:28 PM
+-- Generation Time: Jun 08, 2020 at 02:15 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -35,6 +35,13 @@ CREATE TABLE `berkas_pendukung` (
   `berkas` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `berkas_pendukung`
+--
+
+INSERT INTO `berkas_pendukung` (`id`, `pelamar`, `nama_berkas`, `berkas`) VALUES
+(1, 'inda', 'sertifikat', '77188216Games-HD-Wallpapers-p-37223656.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -46,6 +53,21 @@ CREATE TABLE `detail_lowongan` (
   `lowongan_id` varchar(125) NOT NULL,
   `kualifikasi` varchar(125) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `detail_lowongan`
+--
+
+INSERT INTO `detail_lowongan` (`id`, `lowongan_id`, `kualifikasi`) VALUES
+(1, 'adm34841173', 'perempuan'),
+(2, 'adm34841173', 'belum menikah'),
+(3, 'adm34841173', 'd3'),
+(4, 'IT35652489', 'menguasai javascrip, php, css'),
+(5, 'IT35652489', 'd3'),
+(6, 'IT35652489', 'pntar'),
+(7, 'it34341841', 'menguasai javascrip, php, css'),
+(8, 'it34341841', 'd3'),
+(9, 'it34341841', 'laki-laki');
 
 -- --------------------------------------------------------
 
@@ -60,6 +82,14 @@ CREATE TABLE `detail_ujian` (
   `id_soal` int(11) NOT NULL,
   `jawaban` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `detail_ujian`
+--
+
+INSERT INTO `detail_ujian` (`id`, `ujian_id`, `kategori`, `id_soal`, `jawaban`) VALUES
+(1, 'inda17987598', 1, 1, 'b'),
+(2, 'inda17987598', 2, 2, 'a');
 
 -- --------------------------------------------------------
 
@@ -100,6 +130,14 @@ CREATE TABLE `kategori_soal` (
   `nama` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `kategori_soal`
+--
+
+INSERT INTO `kategori_soal` (`kategori_soal_id`, `nama`) VALUES
+(1, 'pisikolok'),
+(2, 'matematika 1');
+
 -- --------------------------------------------------------
 
 --
@@ -116,6 +154,18 @@ CREATE TABLE `lamaran` (
   `tgl_interview` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `lamaran`
+--
+
+INSERT INTO `lamaran` (`id`, `lowongan`, `pelamar`, `tgl_lamaran`, `status`, `tgl_ujian`, `tgl_interview`) VALUES
+(1, 'adm34841173', 'inda', '28/03/2020', 'DITERIMA', '28/03/2020', '17/04/2020'),
+(2, 'IT35652489', 'a', '06/05/2020', 'ADM', '26/05/2020', ''),
+(3, 'adm34841173', 'a', '06/05/2020', 'TOLAK', '26/05/2020', ''),
+(4, 'adm34841173', 'padisma', '08/06/2020', 'PERMOHONAN', '', ''),
+(5, 'IT35652489', 'padisma', '08/06/2020', 'ADM', '07/06/2020', ''),
+(6, 'it34341841', 'padisma', '08/06/2020', 'ADM', '08/06/2020', '');
+
 -- --------------------------------------------------------
 
 --
@@ -128,6 +178,15 @@ CREATE TABLE `lowongan` (
   `lowongan_tgl_terbit` varchar(50) NOT NULL,
   `lowongan_tgl_batas` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `lowongan`
+--
+
+INSERT INTO `lowongan` (`lowongan_id`, `lowongan_posisi`, `lowongan_tgl_terbit`, `lowongan_tgl_batas`) VALUES
+('adm34841173', 'adm', '28/03/2020', '29/03/2020'),
+('it34341841', 'it', '08/06/2020', '20/08/2020'),
+('IT35652489', 'IT', '06/05/2020', '12/10/2020');
 
 -- --------------------------------------------------------
 
@@ -156,7 +215,8 @@ CREATE TABLE `pelamar` (
 INSERT INTO `pelamar` (`nama`, `tmp_lhr`, `tgl_lhr`, `jns_kel`, `agama`, `no_hp`, `email`, `alamat`, `username`, `password`, `foto`) VALUES
 ('inda', '', '', '', '', '09', 'ijij@inda', '', 'a', 'c4ca4238a0b923820dcc509a6f75849b', 'default.jpg'),
 ('Fiter', '', '', '', '', '0320853275025', 'amp@gmail.com', '', 'fiter', 'd4c1c976e2885dbcf4798b708717ac1e', 'default.jpg'),
-('fiter123', '', '', '', '', '8484884', 'apm@gmail.com', '', 'fiter123', '9942768163fc714dd3dba14fb754261d', 'default.jpg');
+('inda lirta padisma', 'padang', '18/11/1990', 'Laki-laki', 'Islam', '081277967050', 'indalirta@gmail.com', 'Jl. Pinus 235', 'inda', 'c4ca4238a0b923820dcc509a6f75849b', '382154053D-Action-Games-HD-Wallpaper.jpg'),
+('inda lirta padisma', '', '', '', '', '081277967050', 'amp.muh.rofichan@gma', '', 'padisma', 'c4ca4238a0b923820dcc509a6f75849b', 'default.jpg');
 
 -- --------------------------------------------------------
 
@@ -179,7 +239,9 @@ CREATE TABLE `pendidikan` (
 --
 
 INSERT INTO `pendidikan` (`id`, `pelamar`, `pendidikan`, `jurusan`, `ijazah`, `transkip_nilai`, `cv`) VALUES
-(1, 'fiter123', 'S1', 'manajemen informatika', '220212483d-games-wallpapers-3d-picture-3d-wallpaper_oWEbyQ7.jpg', '220212483D-Action-Games-HD-Wallpaper.jpg', '22021248devil-may-cry-background.jpg');
+(1, 'fiter123', 'S1', 'manajemen informatika', '220212483d-games-wallpapers-3d-picture-3d-wallpaper_oWEbyQ7.jpg', '220212483D-Action-Games-HD-Wallpaper.jpg', '22021248devil-may-cry-background.jpg'),
+(2, 'inda', 'D3', 'manajemen informatika', '581459923d-games-wallpapers-3d-picture-3d-wallpaper_oWEbyQ7.jpg', '58145992a932465541113e79d97204f0eb5c803b.jpg', '58145992devil-may-cry-background.jpg'),
+(3, 'padisma', 'S2', 'manajemen informatika', '47858054devil-may-cry-background.jpg', '201948113d-games-wallpapers-3d-picture-3d-wallpaper_oWEbyQ7.jpg', '7794332Games-HD-Wallpapers-p-37223656.jpg');
 
 -- --------------------------------------------------------
 
@@ -198,6 +260,15 @@ CREATE TABLE `soal` (
   `jawaban` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `soal`
+--
+
+INSERT INTO `soal` (`id`, `kategori_soal_id`, `soal`, `a`, `b`, `c`, `d`, `jawaban`) VALUES
+(1, 1, 'dia adalah', 'saya', 'kamu', 'mereka', 'kami lah', 'b'),
+(2, 2, '1+1', '2', '3', '8', '4', 'a'),
+(3, 1, '123w', '1', '2', '', '', '1');
+
 -- --------------------------------------------------------
 
 --
@@ -212,6 +283,13 @@ CREATE TABLE `ujian` (
   `benar` int(11) NOT NULL,
   `salah` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ujian`
+--
+
+INSERT INTO `ujian` (`ujian_id`, `id_lowongan`, `pelamar_id`, `tgl_ujian`, `benar`, `salah`) VALUES
+('inda17987598', 'adm34841173', 'inda', '28/03/2020', 2, 0);
 
 --
 -- Indexes for dumped tables
@@ -291,43 +369,43 @@ ALTER TABLE `ujian`
 -- AUTO_INCREMENT for table `berkas_pendukung`
 --
 ALTER TABLE `berkas_pendukung`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `detail_lowongan`
 --
 ALTER TABLE `detail_lowongan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `detail_ujian`
 --
 ALTER TABLE `detail_ujian`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `kategori_soal`
 --
 ALTER TABLE `kategori_soal`
-  MODIFY `kategori_soal_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `kategori_soal_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `lamaran`
 --
 ALTER TABLE `lamaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `pendidikan`
 --
 ALTER TABLE `pendidikan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `soal`
 --
 ALTER TABLE `soal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

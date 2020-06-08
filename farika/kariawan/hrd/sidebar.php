@@ -56,7 +56,7 @@
         </li>
 
         <li class="nav-item">
-          <a href="lowongan/view.php" class="nav-link">
+          <a href="../lowongan/view.php" class="nav-link">
             <i class="nav-icon fas fa-th"></i>
             <p>Master Lowongan</p>
           </a>
