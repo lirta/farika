@@ -4,7 +4,7 @@ if (empty($_SESSION['username']) AND
     empty($_SESSION['password']))
     {header('location:../login.php');}
     else {
-    	$date= date("d/m/Y");
+    	$date= date("Y-m-d");
     	$queri ="SELECT * FROM lowongan WHERE lowongan_id='$_GET[id]'";
         $hasil =mysqli_query($koneksi,$queri);
         $lowongan=mysqli_fetch_assoc($hasil);
@@ -36,4 +36,3 @@ if (empty($_SESSION['username']) AND
         }
 
     }
-?>

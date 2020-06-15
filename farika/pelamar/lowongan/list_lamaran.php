@@ -95,7 +95,7 @@ if (
                             $tgls = strtotime($date);
                             $r = $kolom['tgl_ujian'];
                             $g = strtotime($r);
-                            if ($g <= $tgls) {
+                            if ($g >= $tgls) {
                               echo "<td><a href='cek_ujian.php?id=$kolom[id]' class='btn btn-danger'>Ujian</a></td>";
                             } else {
                               echo "<td>MAAF UJIAN ANDA TERLEWATKAN</td>";
